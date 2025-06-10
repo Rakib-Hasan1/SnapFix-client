@@ -1,7 +1,21 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../Contexts/AuthContext";
+import { VscSignOut } from "react-icons/vsc";
 
 const Navbar = () => {
+  const { user, signOutUser } = use(AuthContext);
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        console.log("sign out user");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const links = (
     <>
       <NavLink
@@ -53,9 +67,34 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn btn-outline btn-accent">
-            Login
-          </Link>
+          {user ? (
+            <>
+              <div
+                className="tooltip tooltip-bottom inline-block"
+                data-tip={user?.displayName}
+              >
+                <img
+                  className="w-9 h-9 object-cover rounded-xl cursor-pointer mr-3"
+                  src={user?.photoURL}
+                  alt="user Image"
+                />
+              </div>
+
+              <button
+                onClick={handleSignOut}
+                className="cursor-pointer hover:text-red-300 tooltip tooltip-bottom"
+                data-tip="Logout"
+              >
+                <VscSignOut size={40} />
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="btn btn-outline btn-accent">
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

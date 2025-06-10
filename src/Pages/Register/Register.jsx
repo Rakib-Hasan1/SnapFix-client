@@ -1,9 +1,12 @@
-import React from "react";
+import React, { use } from "react";
 import lottie_register from "../../assets/Lotties/register.json.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const Register = () => {
+  const { createUser, updateUser, setUser, googleSignIn } = use(AuthContext);
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,6 +15,35 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photo, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(result.user);
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            console.log("updated user");
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleGoogleRegister = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -30,9 +62,11 @@ const Register = () => {
               SnapFix Register
             </h3>
 
-
-
-            <button className="btn bg-base-100 text-back dark:text-white border-[#e5e5e5] mt-3">
+            <button
+              onClick={handleGoogleRegister}
+              className="btn bg-base-100 text-back dark:text-white border-[#e5e5e5] mt-3"
+              type="button"
+            >
               <svg
                 aria-label="Google logo"
                 width="20"
@@ -63,7 +97,7 @@ const Register = () => {
               Register with Google
             </button>
 
-             <div className="divider">OR</div>
+            <div className="divider">OR</div>
 
             <label className="label">Your Name</label>
             <input

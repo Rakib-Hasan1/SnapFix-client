@@ -1,20 +1,42 @@
 import Lottie from "lottie-react";
-import React from "react";
+import React, { use } from "react";
 import login_lottie from "../../assets/Lotties/login.json.json";
 import { Link } from "react-router";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const Login = () => {
+  const { signInUser, googleSignIn, setUser } = use(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
+
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+    .then(result=> {
+      const user = result.user;
+      setUser(user);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
 
   return (
     <div className="w-8/12 mx-auto my-20 grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="">
+      <div className="flex items-center">
         <Lottie
           style={{ width: "300px" }}
           animationData={login_lottie}
@@ -30,7 +52,7 @@ const Login = () => {
               SnapFix Login
             </h3>
 
-            <button className="btn bg-base-100 text-back dark:text-white border-[#e5e5e5] mt-3">
+            <button onClick={handleGoogleSignIn} type="button" className="btn bg-base-100 text-back dark:text-white border-[#e5e5e5] mt-3">
               <svg
                 aria-label="Google logo"
                 width="20"
