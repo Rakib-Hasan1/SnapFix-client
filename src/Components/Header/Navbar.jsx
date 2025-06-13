@@ -1,10 +1,11 @@
 import React, { use } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { VscSignOut } from "react-icons/vsc";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
+  const location = useLocation();
 
   const handleSignOut = () => {
     signOutUser()
@@ -16,18 +17,72 @@ const Navbar = () => {
       });
   };
 
+  const isDashboardActive = [
+    "/add-service",
+    "/manage-service",
+    "/bookings",
+    "/service-todo",
+  ].includes(location.pathname);
+
   const links = (
     <>
-      <NavLink
-        to="/services"
-        className={({ isActive }) =>
-          isActive
-            ? "text-accent font-bold border-b-2 border-accent"
-            : "font-semibold hover:text-green-500"
-        }
-      >
-        Services
-      </NavLink>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold"
+              : "font-semibold hover:text-success"
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/services"
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold"
+              : "font-semibold hover:text-success"
+          }
+        >
+          Services
+        </NavLink>
+      </li>
+
+      {user && (
+        <li className="dropdown dropdown-hover dropdown-bottom dropdown-start">
+          <span
+            className={`${
+              isDashboardActive
+                ? "text-accent font-bold"
+                : "font-semibold hover:text-success"
+            }`}
+            tabIndex={0}
+          >
+            Dashboard
+          </span>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <NavLink to="/add-service">Add Service</NavLink>
+            </li>
+            <li>
+              <NavLink to="/manage-service">Manage Service</NavLink>
+            </li>
+            <li>
+              <NavLink to="/bookings">Booked-Services</NavLink>
+            </li>
+            <li>
+              <NavLink to="/service-todo">Service-To-Do</NavLink>
+            </li>
+          </ul>
+        </li>
+      )}
     </>
   );
 
@@ -59,11 +114,11 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost text-xl text-accent">
+          <Link to="/" className="btn-ghost font-bold text-2xl text-accent">
             SnapFix
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
@@ -74,7 +129,7 @@ const Navbar = () => {
                 data-tip={user?.displayName}
               >
                 <img
-                  className="w-9 h-9 object-cover rounded-xl cursor-pointer mr-3"
+                  className="w-9 h-9 object-cover rounded-full border border-accent cursor-pointer mr-3"
                   src={user?.photoURL}
                   alt="user Image"
                 />
@@ -82,7 +137,7 @@ const Navbar = () => {
 
               <button
                 onClick={handleSignOut}
-                className="cursor-pointer hover:text-red-300 tooltip tooltip-bottom"
+                className="cursor-pointer hover:text-success tooltip tooltip-bottom"
                 data-tip="Logout"
               >
                 <VscSignOut size={40} />

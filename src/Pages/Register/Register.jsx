@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import lottie_register from "../../assets/Lotties/register.json.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router";
@@ -6,6 +6,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 
 const Register = () => {
   const { createUser, updateUser, setUser, googleSignIn } = use(AuthContext);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -14,7 +15,9 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photo, email, password);
+    // console.log(photo);
+
+    setErrorMessage('');
 
     createUser(email, password)
       .then((result) => {
@@ -32,6 +35,7 @@ const Register = () => {
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
       });
   };
 
@@ -97,7 +101,7 @@ const Register = () => {
               Register with Google
             </button>
 
-            <div className="divider">OR</div>
+            <div className="divider">OR CONTINUE WITH</div>
 
             <label className="label">Your Name</label>
             <input
@@ -144,6 +148,12 @@ const Register = () => {
               />
               Accept out terms and conditions
             </label>
+
+            {errorMessage && (
+              <p className="text-red-500 font-medium mt-2 text-sm">
+                {errorMessage}
+              </p>
+            )}
 
             <button type="submit" className="btn btn-accent mt-4">
               Register

@@ -4,6 +4,10 @@ import RootLayout from "../Layouts/RootLayout";
 import Home from "../Pages/HomePage/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AddService from "../Pages/AddService/AddService";
+import ManageService from "../Pages/ManageService/ManageService";
+import Bookings from "../Pages/Bookings/Bookings";
+import ServiceToDo from "../Pages/ServiceToDo";
 
 export const router = createBrowserRouter([
   {
@@ -23,8 +27,20 @@ export const router = createBrowserRouter([
         Component: Login,
       },
       {
-        path: "/register",
-        Component: Register,
+        path: "/add-service",
+        Component: AddService,
+      },
+      {
+        path: "/manage-service",
+        Component: ManageService,
+      },
+      {
+        path: "/bookings",
+        Component: Bookings,
+      },
+      {
+        path: "/service-todo",
+        Component: ServiceToDo,
       },
     ],
   },

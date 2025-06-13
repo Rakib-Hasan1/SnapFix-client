@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { Suspense } from "react";
+import Hero from "../../Components/Hero/Hero";
+import Stats from "../../Components/Stats/Stats";
+import Services from "../../Components/Services/Services";
 
 const Home = () => {
-    return (
-        <div>
-            Home
-        </div>
-    );
+  const servicesPromise = fetch("http://localhost:3000/services").then((res) =>
+    res.json()
+  );
+
+  return (
+    <div>
+      <Hero></Hero>
+      <Stats></Stats>
+      <Suspense fallback='services loading..'>
+        <Services servicesPromise={servicesPromise}></Services>
+      </Suspense>
+    </div>
+  );
 };
 
 export default Home;

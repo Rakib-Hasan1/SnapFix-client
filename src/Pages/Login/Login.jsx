@@ -1,11 +1,12 @@
 import Lottie from "lottie-react";
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import login_lottie from "../../assets/Lotties/login.json.json";
 import { Link } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 
 const Login = () => {
   const { signInUser, googleSignIn, setUser } = use(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -13,26 +14,29 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     // console.log(email, password);
+    setErrorMessage("");
 
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        setUser(result.user);
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
       });
   };
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-    .then(result=> {
-      const user = result.user;
-      setUser(user);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-  }
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className="w-8/12 mx-auto my-20 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -52,7 +56,11 @@ const Login = () => {
               SnapFix Login
             </h3>
 
-            <button onClick={handleGoogleSignIn} type="button" className="btn bg-base-100 text-back dark:text-white border-[#e5e5e5] mt-3">
+            <button
+              onClick={handleGoogleSignIn}
+              type="button"
+              className="btn bg-base-100 text-back dark:text-white border-[#e5e5e5] mt-3"
+            >
               <svg
                 aria-label="Google logo"
                 width="20"
@@ -83,7 +91,7 @@ const Login = () => {
               Login with Google
             </button>
 
-            <div className="divider">OR</div>
+            <div className="divider">OR CONTINUE WITH</div>
 
             <label className="label">Email Address</label>
             <input
@@ -105,6 +113,12 @@ const Login = () => {
             <label className="font-semibold label text-accent hover:underline cursor-pointer">
               Forget Password ?
             </label>
+
+            {errorMessage && (
+              <p className="text-red-500 font-medium mt-2 text-sm">
+                {errorMessage}
+              </p>
+            )}
 
             <button className="btn btn-accent mt-4 text-base-100">Login</button>
 
