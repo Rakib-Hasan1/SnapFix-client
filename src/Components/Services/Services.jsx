@@ -16,7 +16,7 @@ const Services = ({ servicesPromise }) => {
           ))}
         </div>
         <div className="my-5">
-          <Link to='/services'>
+          <Link to='/all-services'>
             <button className="btn btn-outline btn-accent">
               See All Services
             </button>

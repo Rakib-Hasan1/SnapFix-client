@@ -8,6 +8,8 @@ import AddService from "../Pages/AddService/AddService";
 import ManageService from "../Pages/ManageService/ManageService";
 import Bookings from "../Pages/Bookings/Bookings";
 import ServiceToDo from "../Pages/ServiceToDo";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
+import PrivateRoute from "../Routes/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -19,8 +21,19 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "/services",
+        path: "/all-services",
+        loader: () => fetch("http://localhost:3000/all-services"),
         Component: Services,
+      },
+      {
+        path: "/all-services/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/all-services/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <ServiceDetails></ServiceDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

@@ -41,14 +41,14 @@ const Navbar = () => {
 
       <li>
         <NavLink
-          to="/services"
+          to="/all-services"
           className={({ isActive }) =>
             isActive
               ? "text-accent font-bold"
               : "font-semibold hover:text-success"
           }
         >
-          Services
+         All Services
         </NavLink>
       </li>
 
