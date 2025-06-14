@@ -45,7 +45,7 @@ const Bookings = () => {
     <div>
       <div className="max-w-5xl mx-auto my-6">
         <h2 className="text-2xl font-bold text-accent text-center mb-4">
-          Booked Services
+         Your Booked Services
         </h2>
         {bookings.length === 0 ? (
           <p className="text-center">No Bookings yet.</p>

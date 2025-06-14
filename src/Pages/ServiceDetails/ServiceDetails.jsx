@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const ServiceDetails = () => {
   const { user } = use(AuthContext);
@@ -32,7 +33,16 @@ const ServiceDetails = () => {
       .then((res) => {
         console.log(res.data);
         document.getElementById("my_modal_4").close();
-        navigate('/bookings');
+        navigate("/bookings");
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Service Purchased!",
+            text: "Your purchase has been successfully added.",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          form.reset();
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -47,7 +57,7 @@ const ServiceDetails = () => {
 
       <div key={_id} className="card bg-base-100 shadow-sm my-8">
         <figure>
-          <img src={service_image} alt="service image" />
+          <img src={service_image} className="h-4/12" alt="service image" />
         </figure>
         <div className="card-body">
           <h2 className="card-title text-accent">{service_name}</h2>
@@ -89,7 +99,7 @@ const ServiceDetails = () => {
               </button>
               <dialog id="my_modal_4" className="modal">
                 <div className="modal-box w-11/12 mx-auto max-w-6xl">
-                  {/* <h3 className="font-bold text-lg">Hello!</h3>*/}
+                  <h3 className="font-semibold text-lg mb-3">Press Esc to exit!</h3>
 
                   <form onSubmit={handlePurchaseService} method="dialog">
                     {/* if there is a button in form, it will close the modal */}

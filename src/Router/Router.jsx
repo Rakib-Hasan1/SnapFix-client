@@ -10,6 +10,7 @@ import Bookings from "../Pages/Bookings/Bookings";
 import ServiceToDo from "../Pages/ServiceToDo";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import PrivateRoute from "../Routes/PrivateRoute";
+import LoadingEffect from "../Components/LoadingEffect/LoadingEffect";
 
 export const router = createBrowserRouter([
   {
@@ -22,21 +23,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/all-services",
+        HydrateFallback: <LoadingEffect></LoadingEffect>,
         loader: () => fetch("http://localhost:3000/all-services"),
         Component: Services,
       },
       {
         path: "/all-services/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/all-services/${params.id}`),
-        element: (
-          <PrivateRoute>
-            <ServiceDetails></ServiceDetails>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/all-services/:id",
+        HydrateFallback: <LoadingEffect></LoadingEffect>,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/all-services/${params.id}`),
         element: (
@@ -59,7 +52,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/manage-service",
-        Component: ManageService,
+        element: (
+          <PrivateRoute>
+            <ManageService></ManageService>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/bookings",

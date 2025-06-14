@@ -2,19 +2,42 @@ import React, { use } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { VscSignOut } from "react-icons/vsc";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const location = useLocation();
 
   const handleSignOut = () => {
-    signOutUser()
-      .then(() => {
-        console.log("sign out user");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be signed out!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, sign out!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        signOutUser()
+          .then(() => {
+            Swal.fire({
+              title: "Signed Out!",
+              text: "You have been successfully signed out.",
+              icon: "success",
+            });
+            console.log("sign out user");
+          })
+          .catch((error) => {
+            console.log(error);
+            Swal.fire({
+              title: "Error!",
+              text: "Something went wrong while signing out.",
+              icon: "error",
+            });
+          });
+      }
+    });
   };
 
   const isDashboardActive = [
@@ -48,7 +71,7 @@ const Navbar = () => {
               : "font-semibold hover:text-success"
           }
         >
-         All Services
+          All Services
         </NavLink>
       </li>
 

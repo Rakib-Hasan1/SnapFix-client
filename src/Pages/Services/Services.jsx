@@ -10,48 +10,69 @@ const Services = () => {
         All Services
       </h2>
       {services.map((service) => (
-        <div key={service._id} className="card bg-base-100 shadow-sm my-8">
-          <figure>
-            <img src={service.service_image} alt="service image" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title text-accent">{service.service_name}</h2>
+        <div
+          key={service._id}
+          className="flex flex-col md:flex-row bg-base-100 shadow-lg rounded-xl overflow-hidden border border-gray-200 my-5"
+        >
+          <div className="md:w-3/6 w-full h-72 md:h-auto">
+            <img
+              src={service.service_image}
+              alt={service.service_name}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
 
-            <p className="font-semibold">${service.service_price}</p>
+          <div className="md:w-3/5 w-full p-6 flex flex-col justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-accent mb-3">
+                {service.service_name}
+              </h2>
 
-            <p>{service.service_area}</p>
-            <p>
-              {service.service_description.length > 100
-                ? service.service_description.slice(0, 100) + "....."
-                : service.service_description}
-            </p>
+              <p className="text-gray-700 mb-4 text-justify leading-relaxed">
+                {service.service_description}
+              </p>
 
-            <div className="flex justify-between">
-              <div className="flex items-center gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600 mb-5">
+                <p>
+                  <span className="font-semibold">Price:</span> $
+                  {service.service_price}
+                </p>
+                <p>
+                  <span className="font-semibold">Area:</span>{" "}
+                  {service.service_area}
+                </p>
+                <p>
+                  <span className="font-semibold">Provider Name:</span>{" "}
+                  {service.providerName}
+                </p>
+                <p>
+                  <span className="font-semibold">Provider Email:</span>{" "}
+                  {service.providerEmail}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 mb-4">
                 <img
                   src={service.providerPhotoURL}
-                  className="w-12 h-12 object-cover rounded-full"
-                  alt="Service provider image"
+                  alt="Provider"
+                  className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-bold">
-                    Provider:
-                    <span className="font-normal">{service.providerName}</span>
-                  </p>
-                  <p className="font-bold">
-                    Email:
-                    <span className="font-normal">{service.providerEmail}</span>
+                  <p className="font-semibold">{service.providerName}</p>
+                  <p className="text-sm text-gray-500">
+                    {service.providerEmail}
                   </p>
                 </div>
               </div>
-              <div>
+            </div>
+
+            <div>
                 <Link to={`/all-services/${service._id}`}>
-                  <button className="btn btn-outline btn-accent">
+                  <button className="btn btn-accent">
                     Show Details
                   </button>
                 </Link>
               </div>
-            </div>
           </div>
         </div>
       ))}

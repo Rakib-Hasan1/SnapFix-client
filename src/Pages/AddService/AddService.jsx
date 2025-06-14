@@ -25,7 +25,7 @@ const AddService = () => {
             icon: "success",
             confirmButtonText: "Cool",
           });
-          form.reset(); // clear form
+          form.reset();
         }
       })
       .catch((error) => {
