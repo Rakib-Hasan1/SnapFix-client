@@ -2,17 +2,16 @@ import React from "react";
 import { MdOutlineDone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { VscStarEmpty } from "react-icons/vsc";
+import { FaLocationDot } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const ServiceCard = ({ service }) => {
   const {
+    _id,
     service_name,
     service_image,
-    service_price,
     service_area,
     service_description,
-    providerName,
-    providerEmail,
-    providerPhotoURL,
   } = service;
   return (
     <div className="card bg-base-100 shadow-sm">
@@ -22,29 +21,17 @@ const ServiceCard = ({ service }) => {
       <div className="card-body">
         <h2 className="card-title text-accent">{service_name}</h2>
 
-        <p className="font-semibold">${service_price}</p>
+        {/* <p className="font-semibold">${service_price}</p> */}
 
-        <p>{service_area}</p>
+        <p className="flex items-center gap-1 font-semibold"><FaLocationDot />{service_area}</p>
         <p>
           {service_description.length > 100
             ? service_description.slice(0, 100) + "....."
             : service_description}
         </p>
-
-        <div className="flex items-center gap-3">
-          <img
-            src={providerPhotoURL}
-            className="w-12 h-12 object-cover rounded-full"
-            alt="Service provider image"
-          />
-          <div>
-            <p className="font-bold">
-            Provider: <span className="font-normal">{providerName}</span>
-          </p>
-          <p className="font-bold">
-            Email: <span className="font-normal">{providerEmail}</span>
-          </p>
-          </div>
+        <div className="mt-4">
+          <Link to={`/all-services/${_id}`}><button className="btn btn-accent">View Details</button></Link>
+         
         </div>
       </div>
     </div>

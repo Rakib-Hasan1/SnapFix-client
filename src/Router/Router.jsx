@@ -36,8 +36,22 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/all-services/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/all-services/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <ServiceDetails></ServiceDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/login",
         Component: Login,
+      },
+      {
+        path: "/register",
+        Component: Register,
       },
       {
         path: "/add-service",
@@ -49,7 +63,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/bookings",
-        Component: Bookings,
+        element: (
+          <PrivateRoute>
+            <Bookings></Bookings>
+          </PrivateRoute>
+        ),
+        // Component: Bookings,
       },
       {
         path: "/service-todo",
