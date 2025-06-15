@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { VscSignOut } from "react-icons/vsc";
 import Swal from "sweetalert2";
+import navbar_logo from "../../assets/Images/SnapFix.svg.svg";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -137,8 +138,14 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to="/" className="btn-ghost font-bold text-2xl text-accent">
-            SnapFix
+
+          <Link
+            to="/"
+            className="btn-ghost font-bold text-2xl text-accent flex gap-2"
+          >
+            <img src={navbar_logo} className="w-8 h-8 object-cover" alt="" />
+
+            <p>SnapFix</p>
           </Link>
         </div>
         <div className="navbar-end hidden lg:flex">

@@ -81,7 +81,7 @@ const ServiceToDo = () => {
             <div className="flex items-center gap-3 mt-3">
               <label className="font-semibold">Status:</label>
               <select
-                className="select select-bordered select-sm w-full mt-1"
+                className="select select-bordered select-accent select-sm w-full mt-1"
                 value={booking.serviceStatus}
                 onChange={(e) =>
                   handleStatusChange(booking._id, e.target.value)

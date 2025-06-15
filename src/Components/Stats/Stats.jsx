@@ -3,6 +3,7 @@ import { TbRelationManyToManyFilled } from "react-icons/tb";
 import { FaShippingFast } from "react-icons/fa";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { MdOutlinePriceChange } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const Stats = () => {
   return (
@@ -11,8 +12,12 @@ const Stats = () => {
         <h2 className="font-extrabold text-4xl text-accent text-center py-8">
           Why Choose Us ?
         </h2>
+
         <div className="py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div className="p-8 bg-base-100 rounded-lg shadow-md dark:bg-base-100">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="p-8 bg-base-100 rounded-lg shadow-md dark:bg-base-100"
+          >
             <div className="flex items-center justify-center">
               <TbRelationManyToManyFilled className="text-accent" size={80} />
             </div>
@@ -24,9 +29,12 @@ const Stats = () => {
               to ensure reliability, safety, and top-notch service quality —
               every time.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-8 bg-base-100 rounded-lg shadow-md dark:bg-base-100">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="p-8 bg-base-100 rounded-lg shadow-md dark:bg-base-100"
+          >
             <div className="flex items-center justify-center">
               <FaShippingFast className="text-accent" size={80} />
             </div>
@@ -37,9 +45,12 @@ const Stats = () => {
               Schedule services in just a few clicks. Our platform is built for
               speed and simplicity, saving your time and eliminating the hassle.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-8 bg-base-100 rounded-lg shadow-md dark:bg-base-100">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="p-8 bg-base-100 rounded-lg shadow-md dark:bg-base-100"
+          >
             <div className="flex items-center justify-center">
               <BiSolidPhoneCall className="text-accent" size={80} />
             </div>
@@ -50,9 +61,12 @@ const Stats = () => {
               Got a question or issue? Our friendly support team is available
               around the clock to assist you — day or night.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="p-8 bg-base-100 rounded-lg shadow-md dark:bg-base-100">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="p-8 bg-base-100 rounded-lg shadow-md dark:bg-base-100"
+          >
             <div className="flex items-center justify-center">
               <MdOutlinePriceChange className="text-accent" size={80} />
             </div>
@@ -63,7 +77,7 @@ const Stats = () => {
               No hidden charges. We offer clear and competitive pricing upfront
               so you know exactly what you're paying for.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

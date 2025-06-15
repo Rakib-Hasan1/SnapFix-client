@@ -1,67 +1,35 @@
 import React from "react";
+import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import Navlink_logo from "../../assets/Images/SnapFix.svg.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-300 text-base-content mt-16">
-      {/* Top Footer */}
-      <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 py-12">
-        {/* Logo & About */}
+    <footer className="bg-base-300 text-base-content">
+      <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 py-12 items-start">
         <aside>
-          <h2 className="text-3xl font-extrabold text-accent mb-4">SnapFix</h2>
+          <div className="flex items-center gap-3 mb-4">
+            <img src={Navlink_logo} alt="SnapFix Logo" className="w-10 h-10" />
+            <h2 className="text-2xl font-bold text-accent">SnapFix</h2>
+          </div>
           <p className="text-sm leading-relaxed">
-            Fast, reliable, and trusted home service solutions. SnapFix connects
-            you with top professionals for your daily needs.
+            Fast, reliable, and trusted home service platform. Get the best
+            professionals near you for any service — anytime.
           </p>
         </aside>
 
-        {/* Services */}
-        <nav>
-          <h6 className="footer-title text-lg font-semibold mb-4 text-accent">
-            Services
+        <div>
+          <h6 className="text-lg font-semibold mb-4 text-accent">
+            Quick Links
           </h6>
           <ul className="space-y-2">
             <li>
               <a className="link link-hover hover:text-primary transition">
-                Home Cleaning
+                Home
               </a>
             </li>
             <li>
               <a className="link link-hover hover:text-primary transition">
-                Plumbing
-              </a>
-            </li>
-            <li>
-              <a className="link link-hover hover:text-primary transition">
-                Electrician
-              </a>
-            </li>
-            <li>
-              <a className="link link-hover hover:text-primary transition">
-                Gardening
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        {/* Company */}
-        <nav>
-          <h6 className="footer-title text-lg font-semibold mb-4 text-accent">
-            Company
-          </h6>
-          <ul className="space-y-2">
-            <li>
-              <a className="link link-hover hover:text-primary transition">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a className="link link-hover hover:text-primary transition">
-                Contact
-              </a>
-            </li>
-            <li>
-              <a className="link link-hover hover:text-primary transition">
-                Careers
+                Services
               </a>
             </li>
             <li>
@@ -69,51 +37,55 @@ const Footer = () => {
                 Become a Provider
               </a>
             </li>
+            <li>
+              <a className="link link-hover hover:text-primary transition">
+                Contact
+              </a>
+            </li>
           </ul>
-        </nav>
+        </div>
 
-        {/* Legal */}
-        <nav>
-          <h6 className="footer-title text-lg font-semibold mb-4 text-accent">
-            Legal
-          </h6>
-          <ul className="space-y-2">
-            <li>
-              <a className="link link-hover hover:text-primary transition">
-                Terms of Service
-              </a>
-            </li>
-            <li>
-              <a className="link link-hover hover:text-primary transition">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a className="link link-hover hover:text-primary transition">
-                Cookie Policy
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div>
+          <h6 className="text-lg font-semibold mb-4 text-accent">Follow Us</h6>
+          <div className="flex gap-4 text-xl">
+            <a
+              href="https://www.facebook.com/md.rakib.hasan.0001"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition"
+              aria-label="Facebook"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedinIn />
+            </a>
+            <a
+              href="https://github.com/Rakib-Hasan1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition"
+              aria-label="GitHub"
+            >
+              <FaGithub />
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-base-200 py-4">
-        <div className="w-11/12 mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
-          <p className="mb-2 md:mb-0">
-            © {new Date().getFullYear()} SnapFix. All rights reserved.
+      <div className="border-t border-base-200 py-4 text-sm">
+        <div className="w-11/12 mx-auto flex flex-col md:flex-row justify-between items-center">
+          <p>© {new Date().getFullYear()} SnapFix. All rights reserved.</p>
+          <p className="text-xs mt-2 md:mt-0">
+            Designed with ❤️ by Rakib Hasan
           </p>
-          <div className="flex gap-5 text-lg">
-            <a href="#" className="hover:text-accent transition">
-              <i className="fa-brands fa-facebook"></i>
-            </a>
-            <a href="#" className="hover:text-accent transition">
-              <i className="fa-brands fa-twitter"></i>
-            </a>
-            <a href="#" className="hover:text-accent transition">
-              <i className="fa-brands fa-linkedin"></i>
-            </a>
-          </div>
         </div>
       </div>
     </footer>
