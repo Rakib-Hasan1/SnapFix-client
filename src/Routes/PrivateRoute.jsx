@@ -6,7 +6,7 @@ import LoadingEffect from "../Components/LoadingEffect/LoadingEffect";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = use(AuthContext);
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
   if (loading) {
     return <LoadingEffect></LoadingEffect>;

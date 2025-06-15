@@ -4,6 +4,7 @@ import axios from "axios";
 import { MdModeEditOutline } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const ManageService = () => {
   const { user } = use(AuthContext);
@@ -11,7 +12,9 @@ const ManageService = () => {
   console.log(user.email);
 
   useEffect(() => {
-    if (!user?.email) return; // 🛑 Don't fetch until email exists
+    if (!user?.email) {
+      return;
+    }
 
     axios
       .get(`http://localhost:3000/services-provider?email=${user.email}`)
@@ -19,7 +22,7 @@ const ManageService = () => {
       .catch((err) => console.error(err));
   }, [user?.email]);
 
-  const handleDeleteBooking = (id) => {
+  const handleDeleteService = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -44,6 +47,40 @@ const ManageService = () => {
     });
   };
 
+  // const handleUpdateService = (e, id) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const formData = new FormData(form);
+  //   const UpdateService = Object.fromEntries(formData.entries());
+
+  //   axios
+  //     .put(`http://localhost:3000/services/${id}`, UpdateService)
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       // setServices(res.data)
+  //       if (res.data.modifiedCount > 0) {
+  //         Swal.fire({
+  //           icon: "success",
+  //           title: "Service Updated!",
+  //           text: "Your service has been successfully updated.",
+  //           confirmButtonColor: "#3085d6",
+  //         });
+
+  //         // Close the modal
+  //         document.getElementById("my_modal_4").close();
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       Swal.fire({
+  //         icon: "error",
+  //         title: "Update Failed",
+  //         text: "There was an error updating the service.",
+  //         confirmButtonColor: "#d33",
+  //       });
+  //     });
+  // };
+
   return (
     <div className="w-10/12 mx-auto my-10">
       <h2 className="text-2xl font-bold text-accent text-center mb-6">
@@ -63,7 +100,7 @@ const ManageService = () => {
                 <th>Price</th>
                 <th>Service Provider Name</th>
                 <th>Modify</th>
-                <th>Action</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -78,19 +115,21 @@ const ManageService = () => {
                     />
                   </td>
                   <td className="font-semibold">{service.service_name}</td>
-                  
 
                   <td className="font-semibold">${service.service_price}</td>
                   <td className="font-semibold">{service.providerName}</td>
                   <td>
-                    <button className="btn btn-error btn-sm">
-                      <MdModeEditOutline size={30} />
-                    </button>
+                    <Link to={`/services/${service._id}`}>
+                      <button className="btn btn-error btn-sm">
+                        <MdModeEditOutline size={30} />
+                      </button>
+                    </Link>
                   </td>
+
                   <td>
                     <button
                       className="btn btn-error btn-sm"
-                      onClick={() => handleDeleteBooking(service._id)}
+                      onClick={() => handleDeleteService(service._id)}
                     >
                       <MdDelete size={30} />
                     </button>

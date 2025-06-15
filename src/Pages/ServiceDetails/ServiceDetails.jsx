@@ -237,12 +237,6 @@ const ServiceDetails = () => {
                   </form>
                 </div>
               </dialog>
-
-              {/*  */}
-
-              {/* <Link>
-                <button className="btn btn-accent">Book Now</button>
-              </Link> */}
             </div>
           </div>
         </div>

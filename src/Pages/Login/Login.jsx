@@ -36,7 +36,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        // setUser(user);
+        setUser(user);
         navigate(from);
       })
       .catch((error) => {

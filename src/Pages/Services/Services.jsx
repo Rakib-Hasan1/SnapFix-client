@@ -17,7 +17,7 @@ const Services = () => {
           <div className="md:w-3/6 w-full h-72 md:h-auto">
             <img
               src={service.service_image}
-              alt={service.service_name}
+              alt=""
               className="w-full h-full object-cover object-center"
             />
           </div>
@@ -29,7 +29,9 @@ const Services = () => {
               </h2>
 
               <p className="text-gray-700 mb-4 text-justify leading-relaxed">
-                {service.service_description}
+                {service.service_description.length > 180
+                  ? service.service_description.slice(0, 180) + "....."
+                  : service.service_description}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600 mb-5">
@@ -67,12 +69,10 @@ const Services = () => {
             </div>
 
             <div>
-                <Link to={`/all-services/${service._id}`}>
-                  <button className="btn btn-accent">
-                    Show Details
-                  </button>
-                </Link>
-              </div>
+              <Link to={`/all-services/${service._id}`}>
+                <button className="btn btn-accent">Show Details</button>
+              </Link>
+            </div>
           </div>
         </div>
       ))}
