@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router";
 
 const Services = () => {
@@ -9,6 +10,9 @@ const Services = () => {
       <h2 className="font-extrabold text-2xl text-accent text-center my-5">
         All Services
       </h2>
+      <Helmet>
+        <title>All Services | SnapFix</title>
+      </Helmet>
       {services.map((service) => (
         <div
           key={service._id}
@@ -28,13 +32,13 @@ const Services = () => {
                 {service.service_name}
               </h2>
 
-              <p className="text-gray-700 mb-4 text-justify leading-relaxed">
+              <p className="mb-4 text-justify leading-relaxed">
                 {service.service_description.length > 180
                   ? service.service_description.slice(0, 180) + "....."
                   : service.service_description}
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600 mb-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mb-5">
                 <p>
                   <span className="font-semibold">Price:</span> $
                   {service.service_price}

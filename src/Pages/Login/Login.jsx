@@ -3,6 +3,7 @@ import React, { use, useState } from "react";
 import login_lottie from "../../assets/Lotties/login.json.json";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signInUser, googleSignIn, setUser } = use(AuthContext);
@@ -46,6 +47,9 @@ const Login = () => {
 
   return (
     <div className="w-8/12 mx-auto my-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <Helmet>
+        <title>Login | SnapFix</title>
+      </Helmet>
       <div className="flex items-center">
         <Lottie
           style={{ width: "300px" }}

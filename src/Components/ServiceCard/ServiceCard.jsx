@@ -1,7 +1,4 @@
 import React from "react";
-import { MdOutlineDone } from "react-icons/md";
-import { RxCross2 } from "react-icons/rx";
-import { VscStarEmpty } from "react-icons/vsc";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router";
 

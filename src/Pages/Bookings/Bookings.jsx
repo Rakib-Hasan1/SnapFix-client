@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Bookings = () => {
   const { user } = useContext(AuthContext);
@@ -45,8 +46,11 @@ const Bookings = () => {
     <div>
       <div className="max-w-5xl mx-auto my-6">
         <h2 className="text-2xl font-bold text-accent text-center mb-4">
-         Your Booked Services
+          Your Booked Services
         </h2>
+        <Helmet>
+          <title>Booked Services | SnapFix</title>
+        </Helmet>
         {bookings.length === 0 ? (
           <p className="text-center">No Bookings yet.</p>
         ) : (

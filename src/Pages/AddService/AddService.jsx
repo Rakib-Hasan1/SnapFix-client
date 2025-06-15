@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const { user } = use(AuthContext);
@@ -44,6 +45,9 @@ const AddService = () => {
       <h2 className="font-extrabold text-2xl text-accent text-center my-5">
         Add A Service
       </h2>
+      <Helmet>
+        <title>Add Service | SnapFix</title>
+      </Helmet>
 
       <form
         onSubmit={handleAddService}

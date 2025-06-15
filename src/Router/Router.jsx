@@ -7,11 +7,9 @@ import Register from "../Pages/Register/Register";
 import AddService from "../Pages/AddService/AddService";
 import ManageService from "../Pages/ManageService/ManageService";
 import Bookings from "../Pages/Bookings/Bookings";
-import ServiceToDo from "../Pages/ServiceToDo";
+import ServiceToDo from "../Pages/ServiceToDo/ServiceToDo";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import PrivateRoute from "../Routes/PrivateRoute";
-import LoadingEffect from "../Components/LoadingEffect/LoadingEffect";
-import { Suspense } from "react";
 import UpdateService from "../Pages/UpdateService/UpdateService";
 
 export const router = createBrowserRouter([

@@ -5,6 +5,7 @@ import { MdModeEditOutline } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
+import { Helmet } from "react-helmet-async";
 
 const ManageService = () => {
   const { user } = use(AuthContext);
@@ -47,45 +48,14 @@ const ManageService = () => {
     });
   };
 
-  // const handleUpdateService = (e, id) => {
-  //   e.preventDefault();
-  //   const form = e.target;
-  //   const formData = new FormData(form);
-  //   const UpdateService = Object.fromEntries(formData.entries());
-
-  //   axios
-  //     .put(`http://localhost:3000/services/${id}`, UpdateService)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       // setServices(res.data)
-  //       if (res.data.modifiedCount > 0) {
-  //         Swal.fire({
-  //           icon: "success",
-  //           title: "Service Updated!",
-  //           text: "Your service has been successfully updated.",
-  //           confirmButtonColor: "#3085d6",
-  //         });
-
-  //         // Close the modal
-  //         document.getElementById("my_modal_4").close();
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //       Swal.fire({
-  //         icon: "error",
-  //         title: "Update Failed",
-  //         text: "There was an error updating the service.",
-  //         confirmButtonColor: "#d33",
-  //       });
-  //     });
-  // };
-
   return (
     <div className="w-10/12 mx-auto my-10">
       <h2 className="text-2xl font-bold text-accent text-center mb-6">
         Your Published Services
       </h2>
+      <Helmet>
+        <title>Manage Services | SnapFix</title>
+      </Helmet>
 
       {services.length === 0 ? (
         <p className="text-center">No published services yet.</p>

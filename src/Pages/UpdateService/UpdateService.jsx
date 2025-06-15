@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
@@ -36,7 +37,7 @@ const UpdateService = () => {
             timer: 1500,
           });
         }
-        navigate('/manage-service')
+        navigate("/manage-service");
         console.log(res.data);
       })
       .catch((error) => {
@@ -45,6 +46,9 @@ const UpdateService = () => {
   };
   return (
     <div className="w-8/12 mx-auto mt-10">
+      <Helmet>
+        <title>Update Service | SnapFix</title>
+      </Helmet>
       <form
         onSubmit={handleUpdateService}
         className="fieldset bg-base-300 rounded-box shadow-sm p-10"

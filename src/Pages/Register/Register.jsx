@@ -3,13 +3,14 @@ import lottie_register from "../../assets/Lotties/register.json.json";
 import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, updateUser, setUser, googleSignIn } = use(AuthContext);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state || '/';
+  const from = location.state || "/";
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const Register = () => {
     const password = form.password.value;
     // console.log(photo);
 
-    setErrorMessage('');
+    setErrorMessage("");
 
     createUser(email, password)
       .then((result) => {
@@ -57,6 +58,9 @@ const Register = () => {
 
   return (
     <div className="w-8/12 mx-auto my-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <Helmet>
+        <title>Register | SnapFix</title>
+      </Helmet>
       <div className="flex items-center">
         <Lottie
           style={{ width: "300px" }}

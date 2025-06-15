@@ -3,6 +3,7 @@ import { Link, useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ServiceDetails = () => {
   const { user } = use(AuthContext);
@@ -54,6 +55,9 @@ const ServiceDetails = () => {
       <h2 className="font-extrabold text-2xl text-accent text-center my-5">
         Service Details
       </h2>
+      <Helmet>
+        <title>Service Details | SnapFix</title>
+      </Helmet>
 
       <div key={_id} className="card bg-base-100 shadow-sm my-8">
         <figure>
@@ -99,7 +103,9 @@ const ServiceDetails = () => {
               </button>
               <dialog id="my_modal_4" className="modal">
                 <div className="modal-box w-11/12 mx-auto max-w-6xl">
-                  <h3 className="font-semibold text-lg mb-3">Press Esc to exit!</h3>
+                  <h3 className="font-semibold text-lg mb-3">
+                    Press Esc to exit!
+                  </h3>
 
                   <form onSubmit={handlePurchaseService} method="dialog">
                     {/* if there is a button in form, it will close the modal */}
