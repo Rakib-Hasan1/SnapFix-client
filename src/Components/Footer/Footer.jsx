@@ -83,9 +83,6 @@ const Footer = () => {
       <div className="border-t border-base-200 py-4 text-sm">
         <div className="w-11/12 mx-auto flex flex-col md:flex-row justify-between items-center">
           <p>© {new Date().getFullYear()} SnapFix. All rights reserved.</p>
-          <p className="text-xs mt-2 md:mt-0">
-            Designed with ❤️ by Rakib Hasan
-          </p>
         </div>
       </div>
     </footer>
