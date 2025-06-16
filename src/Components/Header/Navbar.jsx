@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
-import { VscSignOut } from "react-icons/vsc";
+import { TbLogout } from "react-icons/tb";
 import Swal from "sweetalert2";
 import navbar_logo from "../../assets/Images/SnapFix.svg.svg";
 import { useEffect, useState } from "react";
@@ -57,8 +57,12 @@ const Navbar = () => {
     };
 
     return (
-      <button onClick={toggleTheme} className="btn btn-sm btn-outline mx-3">
-        {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+      <button
+        onClick={toggleTheme}
+        className="btn btn-circle btn-outline border border-accent w-8 h-8 font-normal tooltip tooltip-bottom mr-2"
+        data-tip={theme === "light" ? "Switch to Dark" : "Switch to Light"}
+      >
+        {theme === "light" ? "🌙" : "☀️"}
       </button>
     );
   };
@@ -231,7 +235,7 @@ const Navbar = () => {
                 className="cursor-pointer hover:text-success tooltip tooltip-bottom"
                 data-tip="Logout"
               >
-                <VscSignOut size={40} />
+                <TbLogout size={40} />
               </button>
             </>
           ) : (
