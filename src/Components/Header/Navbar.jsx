@@ -115,16 +115,52 @@ const Navbar = () => {
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <NavLink to="/add-service">Add Service</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-accent font-bold"
+                    : "font-semibold hover:text-success"
+                }
+                to="/add-service"
+              >
+                Add Service
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/manage-service">Manage Service</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-accent font-bold"
+                    : "font-semibold hover:text-success"
+                }
+                to="/manage-service"
+              >
+                Manage Service
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/bookings">Booked-Services</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-accent font-bold"
+                    : "font-semibold hover:text-success"
+                }
+                to="/bookings"
+              >
+                Booked-Services
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/service-todo">Service-To-Do</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-accent font-bold"
+                    : "font-semibold hover:text-success"
+                }
+                to="/service-todo"
+              >
+                Service-To-Do
+              </NavLink>
             </li>
           </ul>
         </li>
