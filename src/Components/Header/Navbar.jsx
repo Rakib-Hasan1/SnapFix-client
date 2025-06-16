@@ -4,6 +4,7 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import { VscSignOut } from "react-icons/vsc";
 import Swal from "sweetalert2";
 import navbar_logo from "../../assets/Images/SnapFix.svg.svg";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -39,6 +40,29 @@ const Navbar = () => {
           });
       }
     });
+  };
+
+  const ThemeToggle = () => {
+    const [theme, setTheme] = useState("light");
+
+    useEffect(() => {
+      const savedTheme = localStorage.getItem("theme") || "light";
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }, []);
+
+    const toggleTheme = () => {
+      const newTheme = theme === "light" ? "dark" : "light";
+      setTheme(newTheme);
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    };
+
+    return (
+      <button onClick={toggleTheme} className="btn btn-sm btn-outline mx-3">
+        {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+      </button>
+    );
   };
 
   const isDashboardActive = [
@@ -152,6 +176,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
+          <div>
+            <ThemeToggle className="border-none"></ThemeToggle>
+          </div>
           {user ? (
             <>
               <div

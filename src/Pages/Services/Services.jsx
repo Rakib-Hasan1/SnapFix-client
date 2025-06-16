@@ -26,7 +26,7 @@ const Services = () => {
         <input
           type="text"
           placeholder="Search by service name..."
-          className="input input-bordered w-full max-w-md"
+          className="input input-bordered input-accent w-full max-w-md"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
