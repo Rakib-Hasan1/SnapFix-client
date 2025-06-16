@@ -11,7 +11,11 @@ const Bookings = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:3000/bookings?email=${user.email}`)
+        .get(`http://localhost:3000/bookings?email=${user.email}`, {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        })
         .then((res) => setBookings(res.data))
         .catch((err) => console.error(err));
     }
@@ -46,7 +50,7 @@ const Bookings = () => {
     <div>
       <div className="max-w-5xl mx-auto my-6">
         <h2 className="text-2xl font-bold text-accent text-center mb-4">
-          Your Booked Services
+          My Booked Services
         </h2>
         <Helmet>
           <title>Booked Services | SnapFix</title>

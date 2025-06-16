@@ -27,7 +27,8 @@ const ServiceDetails = () => {
     const formData = new FormData(form);
     const purchaseService = Object.fromEntries(formData.entries());
     purchaseService.serviceStatus = "pending";
-    console.log(purchaseService);
+    purchaseService.service_id = _id;
+    // console.log(purchaseService);
 
     axios
       .post("http://localhost:3000/bookings", purchaseService)

@@ -1,32 +1,37 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Helmet } from "react-helmet-async";
-import { useLoaderData, useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const UpdateService = () => {
-  const services = useLoaderData();
+  const { user } = useContext(AuthContext);
+  const { id } = useParams();
   const navigate = useNavigate();
-  const {
-    providerEmail,
-    providerName,
-    service_area,
-    service_description,
-    service_image,
-    service_name,
-    service_price,
-    _id,
-  } = services;
-  //   console.log(services);
+  const [services, setServices] = useState(null);
+
+  useEffect(() => {
+    if (!user?.accessToken) return;
+
+    axios
+      .get(`http://localhost:3000/services/${id}`, {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      })
+      .then((res) => setServices(res.data))
+      .catch((error) => console.error(error));
+  }, [id, user?.accessToken]);
 
   const handleUpdateService = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const UpdatedData = Object.fromEntries(formData.entries());
-    console.log(UpdatedData);
+
     axios
-      .put(`http://localhost:3000/services/${_id}`, UpdatedData)
+      .put(`http://localhost:3000/services/${id}`, UpdatedData)
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire({
@@ -38,12 +43,26 @@ const UpdateService = () => {
           });
         }
         navigate("/manage-service");
-        console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  if (!services) {
+    return <p className="text-center mt-20 text-lg">Loading service data...</p>;
+  }
+
+  const {
+    providerEmail,
+    providerName,
+    service_area,
+    service_description,
+    service_image,
+    service_name,
+    service_price,
+  } = services;
+
   return (
     <div className="w-8/12 mx-auto mt-10">
       <Helmet>

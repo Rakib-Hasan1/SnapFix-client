@@ -11,7 +11,11 @@ const ServiceToDo = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:3000/bookings/provider?email=${user.email}`)
+        .get(`http://localhost:3000/bookings/provider?email=${user.email}`, {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        })
         .then((res) => setBookings(res.data))
         .catch((err) => console.error(err));
     }
@@ -60,7 +64,9 @@ const ServiceToDo = () => {
               alt={booking.service_name}
               className="w-full h-48 object-cover rounded"
             />
-            <h3 className="text-xl font-bold mt-2">{booking.service_name}</h3>
+            <h3 className="text-xl font-bold mt-2 text-accent">
+              {booking.service_name}
+            </h3>
             <p className="text-sm">
               <span className="font-semibold">Price:</span> $
               {booking.service_price}

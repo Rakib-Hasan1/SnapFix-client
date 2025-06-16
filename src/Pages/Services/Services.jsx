@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 const Services = () => {
   const services = useLoaderData();
@@ -86,9 +87,7 @@ const Services = () => {
                   />
                   <div>
                     <p className="font-semibold">{service.providerName}</p>
-                    <p className="text-sm">
-                      {service.providerEmail}
-                    </p>
+                    <p className="text-sm">{service.providerEmail}</p>
                   </div>
                 </div>
               </div>

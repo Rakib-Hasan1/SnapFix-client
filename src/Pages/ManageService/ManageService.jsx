@@ -10,7 +10,8 @@ import { Helmet } from "react-helmet-async";
 const ManageService = () => {
   const { user } = use(AuthContext);
   const [services, setServices] = useState([]);
-  console.log(user.email);
+  // console.log(user.accessToken);
+  // console.log(user.email);
 
   useEffect(() => {
     if (!user?.email) {
@@ -18,10 +19,14 @@ const ManageService = () => {
     }
 
     axios
-      .get(`http://localhost:3000/services-provider?email=${user.email}`)
+      .get(`http://localhost:3000/services-provider?email=${user.email}`, {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      })
       .then((res) => setServices(res.data))
       .catch((err) => console.error(err));
-  }, [user?.email]);
+  }, [user?.email, user.accessToken]);
 
   const handleDeleteService = (id) => {
     Swal.fire({
