@@ -18,7 +18,7 @@ const ManageService = () => {
     }
 
     axios
-      .get(`http://localhost:3000/services-provider?email=${user.email}`, {
+      .get(`https://snap-fix-server.vercel.app/services-provider?email=${user.email}`, {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
         },
@@ -38,7 +38,7 @@ const ManageService = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/all-services/${id}`).then((res) => {
+        axios.delete(`https://snap-fix-server.vercel.app/all-services/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setServices(services.filter((s) => s._id !== id));
             Swal.fire({

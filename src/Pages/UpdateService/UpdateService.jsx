@@ -15,7 +15,7 @@ const UpdateService = () => {
     if (!user?.accessToken) return;
 
     axios
-      .get(`http://localhost:3000/services/${id}`, {
+      .get(`https://snap-fix-server.vercel.app/services/${id}`, {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
         },
@@ -31,7 +31,7 @@ const UpdateService = () => {
     const UpdatedData = Object.fromEntries(formData.entries());
 
     axios
-      .put(`http://localhost:3000/services/${id}`, UpdatedData)
+      .put(`https://snap-fix-server.vercel.app/services/${id}`, UpdatedData)
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire({

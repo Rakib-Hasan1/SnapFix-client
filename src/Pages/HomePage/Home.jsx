@@ -8,7 +8,7 @@ import Progress from "../../Components/Progress/Progress";
 import GetAService from "../../Components/HowToGetAService/GetAService";
 
 const Home = () => {
-  const servicesPromise = fetch("http://localhost:3000/services").then((res) =>
+  const servicesPromise = fetch("https://snap-fix-server.vercel.app/services").then((res) =>
     res.json()
   );
 
