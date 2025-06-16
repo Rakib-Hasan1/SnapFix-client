@@ -11,24 +11,20 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state || "/";
-  console.log(location);
 
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(email, password);
     setErrorMessage("");
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
         setUser(result.user);
         navigate(from);
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   };
@@ -41,7 +37,6 @@ const Login = () => {
         navigate(from);
       })
       .catch((error) => {
-        console.log(error.message);
       });
   };
 

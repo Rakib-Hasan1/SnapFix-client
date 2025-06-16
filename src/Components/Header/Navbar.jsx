@@ -28,10 +28,8 @@ const Navbar = () => {
               text: "You have been successfully signed out.",
               icon: "success",
             });
-            console.log("sign out user");
           })
           .catch((error) => {
-            console.log(error);
             Swal.fire({
               title: "Error!",
               text: "Something went wrong while signing out.",

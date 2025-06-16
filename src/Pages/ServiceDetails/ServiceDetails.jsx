@@ -42,7 +42,6 @@ const ServiceDetails = () => {
     service_price,
     _id,
   } = service;
-  // console.log(service);
 
   const handlePurchaseService = (e) => {
     e.preventDefault();
@@ -51,12 +50,10 @@ const ServiceDetails = () => {
     const purchaseService = Object.fromEntries(formData.entries());
     purchaseService.serviceStatus = "pending";
     purchaseService.service_id = _id;
-    // console.log(purchaseService);
 
     axios
       .post("http://localhost:3000/bookings", purchaseService)
       .then((res) => {
-        console.log(res.data);
         document.getElementById("my_modal_4").close();
         navigate("/bookings");
         if (res.data.insertedId) {
@@ -70,7 +67,6 @@ const ServiceDetails = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
       });
   };
 

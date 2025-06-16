@@ -10,8 +10,7 @@ import { Helmet } from "react-helmet-async";
 const ManageService = () => {
   const { user } = use(AuthContext);
   const [services, setServices] = useState([]);
-  // console.log(user.accessToken);
-  // console.log(user.email);
+
 
   useEffect(() => {
     if (!user?.email) {

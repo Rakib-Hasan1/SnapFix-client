@@ -45,7 +45,6 @@ const UpdateService = () => {
         navigate("/manage-service");
       })
       .catch((error) => {
-        console.log(error);
       });
   };
 

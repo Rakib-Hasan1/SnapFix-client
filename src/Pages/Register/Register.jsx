@@ -19,27 +19,23 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(photo);
 
     setErrorMessage("");
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(result.user);
+
         navigate(from);
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
-            console.log("updated user");
             setUser({ ...user, displayName: name, photoURL: photo });
           })
           .catch((error) => {
-            console.log(error);
             setUser(user);
           });
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   };
@@ -52,7 +48,6 @@ const Register = () => {
         navigate(from);
       })
       .catch((error) => {
-        console.log(error);
       });
   };
 
