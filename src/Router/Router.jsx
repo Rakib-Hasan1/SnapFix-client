@@ -80,7 +80,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/service-todo",
-        Component: ServiceToDo,
+        element: (
+          <PrivateRoute>
+            <ServiceToDo></ServiceToDo>
+          </PrivateRoute>
+        ),
       },
     ],
   },

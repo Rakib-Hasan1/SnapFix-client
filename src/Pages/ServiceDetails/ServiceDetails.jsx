@@ -91,7 +91,7 @@ const ServiceDetails = () => {
               </div>
             </div>
             <div>
-              {/* Open the modal using document.getElementById('ID').showModal() method */}
+
 
               <button
                 className="btn btn-accent"
@@ -108,15 +108,15 @@ const ServiceDetails = () => {
                   </h3>
 
                   <form onSubmit={handlePurchaseService} method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
+
                     <div className="flex flex-col lg:flex-row gap-8">
                       <div className="w-full">
-                        <label className="label">Service Id</label>
+                        <label className="label">Service Name</label>
                         <input
                           type="text"
-                          name="service_id"
+                          name="service_name"
                           className="input w-full input-accent cursor-not-allowed"
-                          defaultValue={_id}
+                          defaultValue={service_name}
                           readOnly
                         />
                       </div>
