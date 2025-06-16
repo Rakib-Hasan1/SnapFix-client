@@ -1,13 +1,36 @@
-import React, { use } from "react";
-import { Link, useLoaderData, useNavigate } from "react-router";
+import React, { use, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import LoadingEffect from "../../Components/LoadingEffect/LoadingEffect";
 
 const ServiceDetails = () => {
+  const { id } = useParams();
   const { user } = use(AuthContext);
   const navigate = useNavigate();
+  const [service, setService] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/all-services/${id}`, {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      })
+      .then((res) => setService(res.data))
+      .catch((err) => {
+        console.error(err);
+        Swal.fire("Unauthorized", "Failed to fetch service details", "error");
+        navigate("/");
+      });
+  }, [id, navigate, user.accessToken]);
+
+  if (!service) {
+    return <LoadingEffect></LoadingEffect>;
+  }
+
   const {
     providerEmail,
     providerName,
@@ -18,8 +41,8 @@ const ServiceDetails = () => {
     service_name,
     service_price,
     _id,
-  } = useLoaderData();
-  //   console.log(ServiceDetails);
+  } = service;
+  // console.log(service);
 
   const handlePurchaseService = (e) => {
     e.preventDefault();
@@ -92,8 +115,6 @@ const ServiceDetails = () => {
               </div>
             </div>
             <div>
-
-
               <button
                 className="btn btn-accent"
                 onClick={() =>
@@ -109,7 +130,6 @@ const ServiceDetails = () => {
                   </h3>
 
                   <form onSubmit={handlePurchaseService} method="dialog">
-
                     <div className="flex flex-col lg:flex-row gap-8">
                       <div className="w-full">
                         <label className="label">Service Name</label>
