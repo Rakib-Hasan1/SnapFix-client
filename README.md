@@ -1,12 +1,47 @@
-# React + Vite
+# SnapFix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 **Live Site:** [https://your-live-site-link.com](https://your-live-site-link.com)  
+📁 **Selected Category:** Service Sharing Platform
 
-Currently, two official plugins are available:
+## 🌟 Project Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 **User Authentication**: Secure login and registration using Firebase Auth.
+- 🛠️ **Service CRUD**: Users and providers can Create, Read, Update, and Delete services.
+- 📅 **Booking System**: Authenticated users can book services with provider details.
+- 📊 **Role-Based Dashboard**: Separate dashboards for users, providers, and admins.
+- 🔍 **Search & Filter**: Find services quickly by category, name, or location.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack & Tools
+
+### Frontend
+- **React**: Core library for building UI – [Docs](https://reactjs.org/)
+- **React Router v7**: Handles routing between pages – [Docs](https://reactrouter.com/en/main)
+- **Tailwind CSS**: Utility-first CSS framework for custom styling – [Docs](https://tailwindcss.com/)
+- **@tailwindcss/vite**: Tailwind plugin integration for Vite – [Docs](https://tailwindcss.com/docs/guides/vite)
+- **Vite**: Next-gen frontend build tool for faster development – [Docs](https://vitejs.dev/)
+- **Framer Motion**: Animation library for React – [Docs](https://www.framer.com/motion/)
+- **Lottie React**: For beautiful, animated illustrations – [Docs](https://lottiereact.com/)
+- **React Icons**: Easily use popular icon libraries – [Docs](https://react-icons.github.io/react-icons/)
+- **React Simple Typewriter**: Create typing text effects – [Docs](https://www.npmjs.com/package/react-simple-typewriter)
+- **Swiper**: Carousel/slider library – [Docs](https://swiperjs.com/react)
+
+### Backend & Logic
+- **Axios**: HTTP client to interact with backend API – [Docs](https://axios-http.com/docs/intro)
+- **Firebase**: Handles authentication and user management – [Docs](https://firebase.google.com/docs)
+- **SweetAlert2**: Popup modals for success/error notifications – [Docs](https://sweetalert2.github.io/)
+- **React Helmet Async**: For dynamic document titles and meta tags – [Docs](https://github.com/staylor/react-helmet-async)
+
+### Configuration
+- **Dotenv**: For secure environment variables – [Docs](https://github.com/motdotla/dotenv#readme)
+
+---
+
+## 🚀 How to Run Locally
+
+```bash
+git clone https://github.com/your-username/snapfix.git
+cd snapfix
+npm install
+npm run dev
