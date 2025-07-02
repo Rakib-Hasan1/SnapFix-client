@@ -9,7 +9,7 @@ const Stats = () => {
   return (
     <section className="bg-base-300">
       <div className="w-11/12 mx-auto">
-        <h2 className="font-extrabold text-4xl text-accent text-center py-8">
+        <h2 className="font-extrabold text-4xl text-accent text-center pt-14">
           Why Choose Us ?
         </h2>
 

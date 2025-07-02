@@ -11,7 +11,7 @@ const ServiceToDo = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`https://snap-fix-server.vercel.app/bookings/provider?email=${user.email}`, {
+        .get(`http://localhost:3000/bookings/provider?email=${user.email}`, {
           headers: {
             Authorization: `Bearer ${user.accessToken}`,
           },
@@ -23,7 +23,7 @@ const ServiceToDo = () => {
 
   const handleStatusChange = (id, newStatus) => {
     axios
-      .put(`https://snap-fix-server.vercel.app/bookings/status/${id}`, {
+      .put(`http://localhost:3000/bookings/status/${id}`, {
         serviceStatus: newStatus,
       })
       .then((res) => {

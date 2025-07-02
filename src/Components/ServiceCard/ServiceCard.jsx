@@ -17,7 +17,7 @@ const ServiceCard = ({ service }) => {
       className="card bg-base-100 shadow-sm"
     >
       <figure>
-        <img src={service_image} alt="service image" />
+        <img src={service_image} className="w-full h-[200px] object-cover" alt="service image" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-accent">{service_name}</h2>

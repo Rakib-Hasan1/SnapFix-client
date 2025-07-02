@@ -15,7 +15,7 @@ import hero_image5 from "../../assets/Images/man-installs-heating-system-house-c
 const Hero = () => {
  const exploreService = () => {
   window.scrollTo({
-    top: 1580,   // Only use `top`, not x and y
+    top: 1280,   // Only use `top`, not x and y
     behavior: "smooth"
   });
 };
@@ -26,16 +26,16 @@ const Hero = () => {
         {[hero_image1, hero_image2, hero_image3, hero_image4, hero_image5].map(
           (image, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-screen">
+              <div className="relative w-full h-[600px]">
                 <img
                   src={image}
-                  className="w-full h-full object-cover brightness-50"
+                  className="brightness-50"
                   alt=""
                 />
                 <div className="absolute space-y-4 top-1/2 right-10 md:right-20 transform -translate-y-1/2 text-white text-3xl font-bold text-start max-w-xl">
                   <p>
                     <Typewriter
-                      words={["SnapFix - Your One-Stop Service Solution"]}
+                      words={["Your One-Stop Service Solution"]}
                       loop={1}
                       typeSpeed={50}
                       deleteSpeed={0}
@@ -44,7 +44,7 @@ const Hero = () => {
                   </p>
                   <p>
                     <Typewriter
-                      words={["Connect, Hire, and Get Things Done Fast!"]}
+                      words={["Connect, Hire, and Get Things Done!"]}
                       loop={1}
                       cursor={false}
                       typeSpeed={50}

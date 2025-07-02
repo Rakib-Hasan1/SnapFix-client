@@ -14,7 +14,7 @@ const ServiceDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://snap-fix-server.vercel.app/all-services/${id}`, {
+      .get(`http://localhost:3000/all-services/${id}`, {
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
         },
@@ -52,7 +52,7 @@ const ServiceDetails = () => {
     purchaseService.service_id = _id;
 
     axios
-      .post("https://snap-fix-server.vercel.app/bookings", purchaseService)
+      .post("http://localhost:3000/bookings", purchaseService)
       .then((res) => {
         document.getElementById("my_modal_4").close();
         navigate("/bookings");

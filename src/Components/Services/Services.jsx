@@ -7,10 +7,10 @@ const Services = ({ servicesPromise }) => {
   return (
     <div className="bg-base-200">
       <div className="w-11/12 mx-auto py-10">
-        <h2 className="font-extrabold text-2xl text-accent text-center my-8">
+        <h2 className="font-extrabold text-3xl text-accent text-center my-8">
           Top Services
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
           {services.map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}

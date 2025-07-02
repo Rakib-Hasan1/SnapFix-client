@@ -103,77 +103,79 @@ const Navbar = () => {
       </li>
 
       {user && (
-        <li className="dropdown dropdown-hover dropdown-bottom dropdown-start">
-          <span
-            className={`${
-              isDashboardActive
-                ? "text-accent font-bold"
-                : "font-semibold hover:text-success"
-            }`}
-            tabIndex={0}
-          >
-            Dashboard
-          </span>
-          <ul
-            tabIndex={0}
-            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-accent font-bold"
-                    : "font-semibold hover:text-success"
-                }
-                to="/add-service"
-              >
-                Add Service
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-accent font-bold"
-                    : "font-semibold hover:text-success"
-                }
-                to="/manage-service"
-              >
-                Manage Service
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-accent font-bold"
-                    : "font-semibold hover:text-success"
-                }
-                to="/bookings"
-              >
-                Booked-Services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-accent font-bold"
-                    : "font-semibold hover:text-success"
-                }
-                to="/service-todo"
-              >
-                Service-To-Do
-              </NavLink>
-            </li>
-          </ul>
-        </li>
+        <>
+          <li className="dropdown dropdown-hover dropdown-bottom dropdown-start">
+            <span
+              className={`${
+                isDashboardActive
+                  ? "text-accent font-bold"
+                  : "font-semibold hover:text-success"
+              }`}
+              tabIndex={0}
+            >
+              Dashboard
+            </span>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-accent font-bold"
+                      : "font-semibold hover:text-success"
+                  }
+                  to="/add-service"
+                >
+                  Add Service
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-accent font-bold"
+                      : "font-semibold hover:text-success"
+                  }
+                  to="/manage-service"
+                >
+                  Manage Service
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-accent font-bold"
+                      : "font-semibold hover:text-success"
+                  }
+                  to="/bookings"
+                >
+                  Booked-Services
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-accent font-bold"
+                      : "font-semibold hover:text-success"
+                  }
+                  to="/service-todo"
+                >
+                  Service-To-Do
+                </NavLink>
+              </li>
+            </ul>
+          </li>
+        </>
       )}
     </>
   );
 
   return (
-    <div className="px-0 lg:px-14 shadow-md">
+    <div className="sticky top-0 z-50 bg-base-100 px-0 lg:px-14 shadow-md">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">

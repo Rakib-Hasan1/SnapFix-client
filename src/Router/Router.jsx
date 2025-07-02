@@ -12,6 +12,7 @@ import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import PrivateRoute from "../Routes/PrivateRoute";
 import UpdateService from "../Pages/UpdateService/UpdateService";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -41,7 +42,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/all-services",
-        loader: () => fetch("https://snap-fix-server.vercel.app/all-services"),
+        loader: () => fetch("http://localhost:3000/all-services"),
         element: <Services></Services>,
       },
       {
@@ -83,6 +84,10 @@ export const router = createBrowserRouter([
             <ServiceToDo></ServiceToDo>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "contact",
+        Component: ContactUs,
       },
     ],
   },

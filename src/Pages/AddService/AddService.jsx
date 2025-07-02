@@ -17,7 +17,7 @@ const AddService = () => {
     newService.providerPhotoURL = user?.photoURL;
 
     axios
-      .post("https://snap-fix-server.vercel.app/services", newService)
+      .post("http://localhost:3000/services", newService)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

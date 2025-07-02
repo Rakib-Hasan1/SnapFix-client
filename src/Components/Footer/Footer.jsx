@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Navlink_logo from "../../assets/Images/SnapFix.svg.svg";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -23,24 +24,32 @@ const Footer = () => {
           </h6>
           <ul className="space-y-2">
             <li>
-              <a className="link link-hover hover:text-primary transition">
-                Home
-              </a>
+              <Link to="/">
+                <a className="link link-hover hover:text-primary transition">
+                  Home
+                </a>
+              </Link>
             </li>
             <li>
-              <a className="link link-hover hover:text-primary transition">
-                Services
-              </a>
+              <Link to="/all-services">
+                <a className="link link-hover hover:text-primary transition">
+                  All Services
+                </a>
+              </Link>
             </li>
             <li>
-              <a className="link link-hover hover:text-primary transition">
-                Become a Provider
-              </a>
+              <Link to="/add-service">
+                <a className="link link-hover hover:text-primary transition">
+                  Add Services
+                </a>
+              </Link>
             </li>
             <li>
-              <a className="link link-hover hover:text-primary transition">
-                Contact
-              </a>
+              <Link to="/contact">
+                <a className="link link-hover hover:text-primary transition">
+                  Contact Us
+                </a>
+              </Link>
             </li>
           </ul>
         </div>
