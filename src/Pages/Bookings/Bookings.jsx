@@ -11,7 +11,7 @@ const Bookings = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:3000/bookings?email=${user.email}`, {
+        .get(`https://snap-fix-server.vercel.app/bookings?email=${user.email}`, {
           headers: {
             Authorization: `Bearer ${user.accessToken}`,
           },
@@ -32,7 +32,7 @@ const Bookings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/bookings/${id}`).then((res) => {
+        axios.delete(`https://snap-fix-server.vercel.app/bookings/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setBookings(bookings.filter((b) => b._id !== id));
             Swal.fire({

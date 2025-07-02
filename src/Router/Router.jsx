@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/all-services",
-        loader: () => fetch("http://localhost:3000/all-services"),
+        loader: () => fetch("https://snap-fix-server.vercel.app/all-services"),
         element: <Services></Services>,
       },
       {
