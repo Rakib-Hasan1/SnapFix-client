@@ -1,6 +1,6 @@
 # SnapFix
 
-🔗 **Live Site:** [https://your-live-site-link.com](https://your-live-site-link.com)  
+🔗 **Live Site:** [https://snap-fix-assignment-11.web.app](https://snap-fix-assignment-11.web.app)  
 📁 **Selected Category:** Service Sharing Platform
 
 ## 🌟 Project Features
