@@ -63,13 +63,13 @@ const UpdateService = () => {
   } = services;
 
   return (
-    <div className="w-8/12 mx-auto mt-10">
+    <div className="w-full lg:w-8/12 mx-auto mt-3 lg:mt-10 p-3">
       <Helmet>
         <title>Update Service | SnapFix</title>
       </Helmet>
       <form
         onSubmit={handleUpdateService}
-        className="fieldset bg-base-300 rounded-box shadow-sm p-10"
+        className="fieldset bg-base-300 rounded-box shadow-sm p-4 lg:p-10"
       >
         <h3 className="font-extrabold text-2xl text-accent text-center my-4">
           Update Your Service

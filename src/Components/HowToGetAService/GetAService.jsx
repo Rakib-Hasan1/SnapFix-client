@@ -5,12 +5,12 @@ import service_lottie from "../../assets/Lotties/Get-a-Service.json.json";
 const GetAService = () => {
   return (
     <div className="w-11/12 mx-auto pt-8">
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col lg:flex-row items-center justify-center">
         <div>
             <p className="text-sm">------How it works</p>
             <h2 className="font-extrabold text-3xl">Easiest way to get a service</h2>
           <Lottie
-            style={{ width: "500px" }}
+            style={{ width: "400px" }}
             animationData={service_lottie}
             loop={true}
           ></Lottie>

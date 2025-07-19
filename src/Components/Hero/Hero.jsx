@@ -29,11 +29,11 @@ const Hero = () => {
               <div className="relative w-full h-[600px]">
                 <img
                   src={image}
-                  className="brightness-50"
+                  className="brightness-50 w-full h-full object-cover object-top"
                   alt=""
                 />
                 <div className="absolute space-y-4 top-1/2 right-10 md:right-20 transform -translate-y-1/2 text-white text-3xl font-bold text-start max-w-xl">
-                  <p>
+                  <p className="pl-3">
                     <Typewriter
                       words={["Your One-Stop Service Solution"]}
                       loop={1}
@@ -42,7 +42,7 @@ const Hero = () => {
                       delaySpeed={3000}
                     />
                   </p>
-                  <p>
+                  <p className="pl-3">
                     <Typewriter
                       words={["Connect, Hire, and Get Things Done!"]}
                       loop={1}
@@ -52,7 +52,7 @@ const Hero = () => {
                       delaySpeed={3000}
                     />
                   </p>
-                  <button onClick={exploreService} className="btn btn-success">
+                  <button onClick={exploreService} className="btn btn-success ml-3">
                     Explore more{" "}
                     <FaLongArrowAltRight className="mt-1" size={20} />
                   </button>

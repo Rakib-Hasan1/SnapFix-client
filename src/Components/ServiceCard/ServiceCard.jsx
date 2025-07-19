@@ -14,26 +14,24 @@ const ServiceCard = ({ service }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.06 }}
-      className="card bg-base-100 shadow-sm"
+      className="card bg-base-100 border border-gray-200"
     >
       <figure>
         <img src={service_image} className="w-full h-[200px] object-cover" alt="service image" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title text-accent">{service_name}</h2>
+        <h2 className="card-title text-accent -mt-3">{service_name}</h2>
 
-        {/* <p className="font-semibold">${service_price}</p> */}
-
-        <p className="flex items-center gap-1 font-semibold">
+        <p className="flex items-center gap-1 font-semibold -my-1">
           <FaLocationDot />
           {service_area}
         </p>
         <p>
-          {service_description.length > 100
-            ? service_description.slice(0, 100) + "....."
+          {service_description.length > 80
+            ? service_description.slice(0, 80) + "....."
             : service_description}
         </p>
-        <div className="mt-4">
+        <div className="">
           <Link to={`/all-services/${_id}`}>
             <button className="btn btn-accent">View Details</button>
           </Link>

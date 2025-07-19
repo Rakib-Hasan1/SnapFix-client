@@ -41,7 +41,7 @@ const AddService = () => {
   };
 
   return (
-    <div className="w-8/12 mx-auto my-10">
+    <div className="w-full lg:w-8/12 mx-auto my-10 p-3">
       <h2 className="font-extrabold text-2xl text-accent text-center my-5">
         Add A Service
       </h2>
@@ -51,7 +51,7 @@ const AddService = () => {
 
       <form
         onSubmit={handleAddService}
-        className="fieldset bg-base-300 rounded-box shadow-sm p-10"
+        className="fieldset bg-base-300 rounded-box shadow-sm p-4 lg:p-10"
       >
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="w-full">

@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-300 text-base-content">
+    <footer className="border-t border-gray-200 text-base-content">
       <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 py-12 items-start">
         <aside>
           <div className="flex items-center gap-3 mb-4">
@@ -24,31 +24,28 @@ const Footer = () => {
           </h6>
           <ul className="space-y-2">
             <li>
-              <Link to="/">
-                <a className="link link-hover hover:text-primary transition">
-                  Home
-                </a>
+              <Link to="/" className="link link-hover hover:text-primary transition">
+
+                Home
+
               </Link>
             </li>
             <li>
-              <Link to="/all-services">
-                <a className="link link-hover hover:text-primary transition">
-                  All Services
-                </a>
+              <Link to="/all-services" className="link link-hover hover:text-primary transition">
+
+                All Services
+
               </Link>
             </li>
             <li>
-              <Link to="/add-service">
-                <a className="link link-hover hover:text-primary transition">
-                  Add Services
-                </a>
+              <Link to="/add-service" className="link link-hover hover:text-primary transition">
+                Add Services
+
               </Link>
             </li>
             <li>
-              <Link to="/contact">
-                <a className="link link-hover hover:text-primary transition">
-                  Contact Us
-                </a>
+              <Link to="/contact" className="link link-hover hover:text-primary transition">
+                Contact Us
               </Link>
             </li>
           </ul>
