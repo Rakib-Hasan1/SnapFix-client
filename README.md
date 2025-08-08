@@ -4,7 +4,7 @@
 📁 **Selected Category:** Service Sharing Platform
 
 
-🔗 **Server Repository:** [https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-Rakib-Hasan1](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-Rakib-Hasan1)  
+🔗 **Server Repository:** [Server repository](https://github.com/Rakib-Hasan1/SnapFix-server)  
 
 ## 🌟 Project Features
 
