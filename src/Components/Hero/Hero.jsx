@@ -26,10 +26,10 @@ const Hero = () => {
         {[hero_image1, hero_image2, hero_image3, hero_image4, hero_image5].map(
           (image, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-[600px]">
+              <div className="relative w-full h-[600px] flex flex-row-reverse">
                 <img
                   src={image}
-                  className="brightness-50 w-full h-full object-cover object-top"
+                  className="brightness-50 w-full h-full object-cover object-left lg:object-top"
                   alt="banner"
                 />
                 <div className="share-tech absolute space-y-4 top-1/2 right-10 md:right-20 transform -translate-y-1/2 text-white text-3xl font-bold text-start max-w-xl">

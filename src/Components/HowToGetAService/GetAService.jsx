@@ -8,8 +8,8 @@ const GetAService = () => {
       <div className="w-11/12 mx-auto pt-8">
         <div className="flex flex-col lg:flex-row items-center justify-center">
           <div>
-            <p className="text-sm">------How it works</p>
-            <h2 className="font-extrabold text-3xl">Easiest way to get a service</h2>
+            <p className="text-sm ml-5 lg:ml-0">------How it works</p>
+            <h2 className="font-extrabold text-3xl ml-5 lg:ml-0">Easiest way to get a service</h2>
             <Lottie
               style={{ width: "400px" }}
               animationData={service_lottie}
