@@ -49,7 +49,7 @@ const Bookings = () => {
   return (
     <div>
       <div className="max-w-5xl mx-auto my-6">
-        <h2 className="text-2xl font-bold text-accent text-center mb-4">
+        <h2 className="text-2xl font-bold text-accent text-center mb-4 oswald">
           My Booked Services
         </h2>
         <Helmet>

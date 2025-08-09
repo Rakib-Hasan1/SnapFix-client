@@ -21,8 +21,8 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-6 lg:p-12 bg-white dark:bg-gray-900 rounded-xl shadow-sm transition-colors duration-300 share-tech">
-      <h2 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">
+    <div className="max-w-4xl mx-auto mt-10 p-6 lg:p-12 rounded-xl shadow-sm transition-colors duration-300 share-tech">
+      <h2 className="text-3xl font-bold text-center text-accent mb-8 oswald">
         Contact Us
       </h2>
 
@@ -32,7 +32,7 @@ const ContactUs = () => {
           <div>
             <label
               htmlFor="email"
-              className="block font-semibold mb-1 text-gray-800 dark:text-gray-200"
+              className="block font-semibold mb-1  "
             >
               Your Email
             </label>
@@ -41,14 +41,14 @@ const ContactUs = () => {
               name="email"
               required
               placeholder="example@email.com"
-              className="w-full px-4 py-2 border rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:text-white border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border rounded-lg shadow-sm border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <div>
             <label
               htmlFor="message"
-              className="block font-semibold mb-1 text-gray-800 dark:text-gray-200"
+              className="block font-semibold mb-1"
             >
               Message
             </label>
@@ -57,7 +57,7 @@ const ContactUs = () => {
               rows="5"
               required
               placeholder="Write your message..."
-              className="w-full px-4 py-2 border rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:text-white border-gray-300 dark:border-gray-600 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border rounded-lg shadow-sm border-gray-300 dark:border-gray-600 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </div>
 
@@ -70,7 +70,7 @@ const ContactUs = () => {
         </form>
 
         {/* Contact Info */}
-        <div className="space-y-4 text-gray-700 dark:text-gray-300">
+        <div className="space-y-4 dark:text-gray-300">
           <h3 className="text-xl font-semibold dark:text-white">Reach Us At</h3>
           <p>
             📍 <strong>Address:</strong> 123 Main Street, Dhaka, Bangladesh

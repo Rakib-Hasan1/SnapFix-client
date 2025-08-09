@@ -75,7 +75,7 @@ const ServiceDetails = () => {
     <div className="bg-base-200 min-h-screen">
       <div className="w-full lg:w-8/12 mx-auto">
         <div className="mx-auto p-4">
-          <h2 className="font-extrabold text-2xl text-accent text-center my-5">
+          <h2 className="font-extrabold text-2xl text-accent text-center my-5 oswald">
             Service Details
           </h2>
           <Helmet>

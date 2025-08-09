@@ -9,14 +9,14 @@ const Stats = () => {
   return (
     <section className="bg-base-300">
       <div className="w-10/12 mx-auto">
-        <h2 className="font-extrabold text-3xl text-accent text-center pt-14">
+        <h2 className="font-extrabold text-3xl text-accent text-center pt-14 oswald">
           Why Choose Us ?
         </h2>
 
         <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 share-tech">
           <motion.div
             whileHover={{ scale: 1.1 }}
-            className="p-6 bg-base-100 rounded-lg shadow-md"
+            className="p-6 bg-base-100 rounded-lg"
           >
             <div className="flex items-center justify-center">
               <TbRelationManyToManyFilled className="text-accent" size={80} />
@@ -32,7 +32,7 @@ const Stats = () => {
 
           <motion.div
             whileHover={{ scale: 1.1 }}
-            className="p-6 bg-base-100 rounded-lg shadow-md"
+            className="p-6 bg-base-100 rounded-lg"
           >
             <div className="flex items-center justify-center">
               <FaShippingFast className="text-accent" size={80} />
@@ -48,7 +48,7 @@ const Stats = () => {
 
           <motion.div
             whileHover={{ scale: 1.1 }}
-            className="p-6 bg-base-100 rounded-lg shadow-md"
+            className="p-6 bg-base-100 rounded-lg"
           >
             <div className="flex items-center justify-center">
               <BiSolidPhoneCall className="text-accent" size={80} />
@@ -64,7 +64,7 @@ const Stats = () => {
 
           <motion.div
             whileHover={{ scale: 1.1 }}
-            className="p-6 bg-base-100 rounded-lg shadow-md"
+            className="p-6 bg-base-100 rounded-lg"
           >
             <div className="flex items-center justify-center">
               <MdOutlinePriceChange className="text-accent" size={80} />

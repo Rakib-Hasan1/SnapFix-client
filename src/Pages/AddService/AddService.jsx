@@ -42,7 +42,7 @@ const AddService = () => {
 
   return (
     <div className="w-full lg:w-8/12 mx-auto my-10 p-3">
-      <h2 className="font-extrabold text-2xl text-accent text-center my-5">
+      <h2 className="font-extrabold text-2xl text-accent text-center my-5 oswald">
         Add A Service
       </h2>
       <Helmet>

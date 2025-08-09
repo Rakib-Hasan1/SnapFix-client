@@ -75,8 +75,8 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-accent font-bold"
-              : "font-bold hover:text-success"
+              ? "text-accent font-bold text-lg"
+              : "font-bold hover:text-success text-lg"
           }
         >
           Home
@@ -88,63 +88,82 @@ const Navbar = () => {
           to="/all-services"
           className={({ isActive }) =>
             isActive
-              ? "text-accent font-bold"
-              : "font-bold hover:text-success"
+              ? "text-accent font-bold text-lg"
+              : "font-bold hover:text-success text-lg"
           }
         >
           All Services
         </NavLink>
       </li>
 
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold text-lg"
+              : "font-bold hover:text-success text-lg"
+          }
+          to="/contact"
+        >
+          Contact Us
+        </NavLink>
+      </li>
 
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "text-accent font-bold"
-              : "font-bold hover:text-success"
-          }
-          to="/add-service"
-        >
-          Add Service
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "text-accent font-bold"
-              : "font-bold hover:text-success"
-          }
-          to="/manage-service"
-        >
-          Manage Service
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "text-accent font-bold"
-              : "font-bold hover:text-success"
-          }
-          to="/bookings"
-        >
-          Booked-Services
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "text-accent font-bold"
-              : "font-bold hover:text-success"
-          }
-          to="/service-todo"
-        >
-          Service-To-Do
-        </NavLink>
-      </li>
+      {
+        user && (
+          <>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-accent font-bold text-lg"
+                    : "font-bold hover:text-success text-lg"
+                }
+                to="/add-service"
+              >
+                Add Service
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-accent font-bold text-lg"
+                    : "font-bold hover:text-success text-lg"
+                }
+                to="/manage-service"
+              >
+                Manage Service
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-accent font-bold text-lg"
+                    : "font-bold hover:text-success text-lg"
+                }
+                to="/bookings"
+              >
+                Booked-Services
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-accent font-bold text-lg"
+                    : "font-bold hover:text-success text-lg"
+                }
+                to="/service-todo"
+              >
+                Service-To-Do
+              </NavLink>
+            </li>
+          </>
+        )
+      }
+
     </>
   );
 
@@ -183,7 +202,7 @@ const Navbar = () => {
           >
             <img src={navbar_logo} className="w-8 h-8 object-cover" alt="" />
 
-            <p>SnapFix</p>
+            <p className="oswald">SnapFix</p>
           </Link>
         </div>
         <div className="hidden lg:flex">
@@ -216,7 +235,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/login" className="btn btn-outline btn-accent">
+              <Link to="/login" className="btn btn-outline btn-accent btn-md rounded-2xl">
                 Login
               </Link>
             </>

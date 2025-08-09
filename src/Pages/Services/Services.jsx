@@ -12,12 +12,13 @@ const Services = () => {
   );
 
   return (
-    <div className="w-full lg:w-8/12 mx-auto my-6 p-4">
+    <div className="bg-base-300">
+      <div className="w-full lg:w-8/12 mx-auto py-6 p-4">
       <Helmet>
         <title>All Services | SnapFix</title>
       </Helmet>
 
-      <h2 className="font-extrabold text-2xl text-accent text-center my-5">
+      <h2 className="font-extrabold text-2xl text-accent text-center my-5 oswald">
         All Services
       </h2>
 
@@ -37,7 +38,7 @@ const Services = () => {
         filteredServices.map((service) => (
           <div
             key={service._id}
-            className="flex flex-col md:flex-row bg-base-100 rounded-xl overflow-hidden border border-gray-200 my-5"
+            className="flex flex-col md:flex-row bg-base-100 rounded-xl overflow-hidden my-5"
           >
             <div className="md:w-3/6 w-full h-72 md:h-auto">
               <img
@@ -102,6 +103,7 @@ const Services = () => {
       ) : (
         <p className="text-center text-xl mt-10">No services found</p>
       )}
+    </div>
     </div>
   );
 };

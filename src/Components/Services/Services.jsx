@@ -7,7 +7,7 @@ const Services = ({ servicesPromise }) => {
   return (
     <div className="bg-base-300">
       <div className="w-11/12 mx-auto">
-        <h2 className="font-extrabold text-3xl text-accent text-center py-8">
+        <h2 className="font-extrabold text-3xl text-accent text-center py-8 oswald">
           Top Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 share-tech">

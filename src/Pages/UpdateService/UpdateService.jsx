@@ -69,9 +69,9 @@ const UpdateService = () => {
       </Helmet>
       <form
         onSubmit={handleUpdateService}
-        className="fieldset bg-base-300 rounded-box shadow-sm p-4 lg:p-10"
+        className="fieldset bg-base-300 rounded-box shadow-sm p-4 lg:p-10 share-tech"
       >
-        <h3 className="font-extrabold text-2xl text-accent text-center my-4">
+        <h3 className="font-extrabold text-2xl text-accent text-center my-4 oswald">
           Update Your Service
         </h3>
         <div className="flex flex-col lg:flex-row gap-8">

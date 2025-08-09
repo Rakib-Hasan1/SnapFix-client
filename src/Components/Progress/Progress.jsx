@@ -3,7 +3,7 @@ import React from "react";
 const Progress = () => {
   return (
     <div className="bg-base-300">
-      <h2 className="font-extrabold text-3xl text-accent text-center py-5">
+      <h2 className="font-extrabold text-3xl text-accent text-center py-5 oswald">
         Our Achievements
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-center py-8 share-tech">

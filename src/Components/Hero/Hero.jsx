@@ -6,38 +6,35 @@ import "swiper/css/navigation";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 
-import hero_image1 from "../../assets/Images/cheerful-asian-male-janitor-walking-into-hotel-room-carrying-supplies-bucket.jpg";
-import hero_image2 from "../../assets/Images/electrician-builder-work-installation-lamps-height-professional-overalls-with-drill-repair-site.jpg";
-import hero_image3 from "../../assets/Images/electrician-working-near-board-with-wires-installation-connection-electrics.jpg";
-import hero_image4 from "../../assets/Images/man-doing-professional-home-cleaning-service.jpg";
-import hero_image5 from "../../assets/Images/man-installs-heating-system-house-checks-pipes-with-wrench.jpg";
+import banner from "../../assets/Images/banner-image.jpg"
+import banner2 from "../../assets/Images/banner-image (2).jpg"
+import banner3 from "../../assets/Images/banner-image (3).jpg"
 
 const Hero = () => {
- const exploreService = () => {
-  window.scrollTo({
-    top: 1280,   // Only use `top`, not x and y
-    behavior: "smooth"
-  });
-};
+  const exploreService = () => {
+    window.scrollTo({
+      top: 1080,   // Only use `top`, not x and y
+      behavior: "smooth"
+    });
+  };
 
   return (
     <div>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        {[hero_image1, hero_image2, hero_image3, hero_image4, hero_image5].map(
+      <Swiper navigation={true} modules={[Navigation]} loop={true} className="mySwiper">
+        {[banner, banner2, banner3].map(
           (image, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-[600px] flex flex-row-reverse">
+              <div className="relative w-full h-[600px] flex">
                 <img
                   src={image}
-                  className="brightness-50 w-full h-full object-cover object-left lg:object-top"
+                  className="brightness-50 w-full h-full object-cover object-right lg:object-right"
                   alt="banner"
                 />
-                <div className="share-tech absolute space-y-4 top-1/2 right-10 md:right-20 transform -translate-y-1/2 text-white text-3xl font-bold text-start max-w-xl">
+                <div className="share-tech absolute space-y-4 top-1/2 left-10 md:left-20 transform -translate-y-1/2 text-white text-3xl font-bold text-start max-w-xl">
                   <p className="pl-3">
                     <Typewriter
-                    className="share-tech"
+                      className="share-tech"
                       words={["Your One-Stop Service Solution"]}
-                      loop={1}
                       typeSpeed={50}
                       delaySpeed={3000}
                     />
@@ -45,15 +42,13 @@ const Hero = () => {
                   <p className="pl-3">
                     <Typewriter
                       words={["Connect, Hire, and Get Things Done!"]}
-                      loop={1}
-                      cursor={false}
-                      typeSpeed={50}
-                      delaySpeed={3000}
+                      typeSpeed={40}
+                      delaySpeed={2800}
                     />
                   </p>
-                  <button onClick={exploreService} className="btn btn-success ml-3">
+                  <button onClick={exploreService} className="btn btn-success btn-outline font-normal text-lg ml-3">
                     Explore more{" "}
-                    <FaLongArrowAltRight className="mt-1" size={20} />
+                    <FaLongArrowAltRight size={25} />
                   </button>
                 </div>
               </div>

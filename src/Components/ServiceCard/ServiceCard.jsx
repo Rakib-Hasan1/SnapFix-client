@@ -15,7 +15,7 @@ const ServiceCard = ({ service }) => {
     <Link to={`/all-services/${_id}`}>
       <motion.div
         whileHover={{ scale: 1.06 }}
-        className="card bg-base-100 border border-gray-200"
+        className="card bg-base-100"
       >
         <figure>
           <img src={service_image} className="w-full h-[200px] object-cover" alt="service image" />
@@ -32,11 +32,6 @@ const ServiceCard = ({ service }) => {
               ? service_description.slice(0, 80) + "....."
               : service_description}
           </p>
-          <div className="">
-
-            {/* <button className="btn btn-accent btn-sm">View Details</button> */}
-
-          </div>
         </div>
       </motion.div>
     </Link>
