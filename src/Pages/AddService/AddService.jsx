@@ -51,7 +51,7 @@ const AddService = () => {
 
       <form
         onSubmit={handleAddService}
-        className="fieldset bg-base-300 rounded-box shadow-sm p-4 lg:p-10"
+        className="fieldset bg-base-300 rounded-box shadow-sm p-4 lg:p-10 share-tech"
       >
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="w-full">

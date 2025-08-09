@@ -21,7 +21,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-6 lg:p-12 bg-white dark:bg-gray-900 rounded-xl shadow-sm transition-colors duration-300">
+    <div className="max-w-4xl mx-auto mt-10 p-6 lg:p-12 bg-white dark:bg-gray-900 rounded-xl shadow-sm transition-colors duration-300 share-tech">
       <h2 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">
         Contact Us
       </h2>
@@ -81,11 +81,11 @@ const ContactUs = () => {
               href="mailto:support@yourcompany.com"
               className="text-blue-600 dark:text-blue-400 underline"
             >
-              support@yourcompany.com
+              support@snapfix.web.team.com
             </a>
           </p>
           <p>
-            📞 <strong>Phone:</strong> +880 1234-567890
+            📞 <strong>Phone:</strong> +880 1234-56789
           </p>
           <p>
             ⏰ <strong>Working Hours:</strong> Sun – Thu, 10 AM – 6 PM

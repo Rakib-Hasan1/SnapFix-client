@@ -41,7 +41,7 @@ const ServiceToDo = () => {
   if (!bookings.length) {
     return (
       <div className="text-center my-20 text-lg font-semibold text-error">
-        No booked services found.
+        No one booked your service yet
       </div>
     );
   }
@@ -56,7 +56,7 @@ const ServiceToDo = () => {
         <title>Services ToDo | SnapFix</title>
       </Helmet>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 share-tech">
         {bookings.map((booking) => (
           <div key={booking._id} className="card bg-base-100 shadow p-4">
             <img

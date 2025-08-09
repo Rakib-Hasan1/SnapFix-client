@@ -67,12 +67,6 @@ const Navbar = () => {
     );
   };
 
-  // const isDashboardActive = [
-  //   "/add-service",
-  //   "/manage-service",
-  //   "/bookings",
-  //   "/service-todo",
-  // ].includes(location.pathname);
 
   const links = (
     <>
