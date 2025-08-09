@@ -22,7 +22,7 @@ const Services = () => {
       </h2>
 
       {/* 🔍 Search input */}
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center mb-6 share-tech">
         <input
           type="text"
           placeholder="Search by service name..."
@@ -48,7 +48,7 @@ const Services = () => {
             </div>
 
             <div className="md:w-3/5 w-full p-6 flex flex-col justify-between">
-              <div>
+              <div className="share-tech">
                 <h2 className="text-2xl font-bold text-accent mb-3">
                   {service.service_name}
                 </h2>
@@ -93,7 +93,7 @@ const Services = () => {
 
               <div>
                 <Link to={`/all-services/${service._id}`}>
-                  <button className="btn btn-accent">Show Details</button>
+                  <button className="btn btn-accent btn-sm">Show Details</button>
                 </Link>
               </div>
             </div>

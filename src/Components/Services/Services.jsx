@@ -5,19 +5,19 @@ import { Link } from "react-router";
 const Services = ({ servicesPromise }) => {
   const services = use(servicesPromise);
   return (
-    <div className="bg-base-200">
-      <div className="w-11/12 mx-auto py-10">
-        <h2 className="font-extrabold text-3xl text-accent text-center my-8">
+    <div className="bg-base-300">
+      <div className="w-11/12 mx-auto">
+        <h2 className="font-extrabold text-3xl text-accent text-center py-8">
           Top Services
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
-          {services.map((service) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 share-tech">
+          {services?.map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}
         </div>
-        <div className="my-5">
+        <div className="py-5">
           <Link to="/all-services">
-            <button className="btn btn-outline btn-accent">
+            <button className="btn btn-outline btn-accent btn-sm">
               See All Services
             </button>
           </Link>

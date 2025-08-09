@@ -12,32 +12,34 @@ const ServiceCard = ({ service }) => {
     service_description,
   } = service;
   return (
-    <motion.div
-      whileHover={{ scale: 1.06 }}
-      className="card bg-base-100 border border-gray-200"
-    >
-      <figure>
-        <img src={service_image} className="w-full h-[200px] object-cover" alt="service image" />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title text-accent -mt-3">{service_name}</h2>
+    <Link to={`/all-services/${_id}`}>
+      <motion.div
+        whileHover={{ scale: 1.06 }}
+        className="card bg-base-100 border border-gray-200"
+      >
+        <figure>
+          <img src={service_image} className="w-full h-[200px] object-cover" alt="service image" />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title text-accent -mt-3">{service_name}</h2>
 
-        <p className="flex items-center gap-1 font-semibold -my-1">
-          <FaLocationDot />
-          {service_area}
-        </p>
-        <p>
-          {service_description.length > 80
-            ? service_description.slice(0, 80) + "....."
-            : service_description}
-        </p>
-        <div className="">
-          <Link to={`/all-services/${_id}`}>
-            <button className="btn btn-accent">View Details</button>
-          </Link>
+          <p className="flex items-center gap-1 font-semibold -my-1">
+            <FaLocationDot />
+            {service_area}
+          </p>
+          <p className="hover:underline">
+            {service_description.length > 80
+              ? service_description.slice(0, 80) + "....."
+              : service_description}
+          </p>
+          <div className="">
+
+            {/* <button className="btn btn-accent btn-sm">View Details</button> */}
+
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 };
 

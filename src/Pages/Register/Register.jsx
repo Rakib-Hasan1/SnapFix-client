@@ -63,7 +63,7 @@ const Register = () => {
           loop={true}
         ></Lottie>
       </div>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl row-start-1">
+      <div className="card bg-base-100 w-full max-w-sm shrink-0 border border-gray-300 row-start-1">
         <div className="card-body">
           <form onSubmit={handleRegister} className="fieldset">
             <h3 className="font-bold text-2xl text-center text-accent">

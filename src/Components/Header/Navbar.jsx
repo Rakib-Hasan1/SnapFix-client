@@ -67,12 +67,12 @@ const Navbar = () => {
     );
   };
 
-  const isDashboardActive = [
-    "/add-service",
-    "/manage-service",
-    "/bookings",
-    "/service-todo",
-  ].includes(location.pathname);
+  // const isDashboardActive = [
+  //   "/add-service",
+  //   "/manage-service",
+  //   "/bookings",
+  //   "/service-todo",
+  // ].includes(location.pathname);
 
   const links = (
     <>
@@ -82,7 +82,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-accent font-bold"
-              : "font-semibold hover:text-success"
+              : "font-bold hover:text-success"
           }
         >
           Home
@@ -95,89 +95,69 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-accent font-bold"
-              : "font-semibold hover:text-success"
+              : "font-bold hover:text-success"
           }
         >
           All Services
         </NavLink>
       </li>
 
-      {user && (
-        <>
-          <li className="dropdown dropdown-hover dropdown-bottom dropdown-start">
-            <span
-              className={`${
-                isDashboardActive
-                  ? "text-accent font-bold"
-                  : "font-semibold hover:text-success"
-              }`}
-              tabIndex={0}
-            >
-              Dashboard
-            </span>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-accent font-bold"
-                      : "font-semibold hover:text-success"
-                  }
-                  to="/add-service"
-                >
-                  Add Service
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-accent font-bold"
-                      : "font-semibold hover:text-success"
-                  }
-                  to="/manage-service"
-                >
-                  Manage Service
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-accent font-bold"
-                      : "font-semibold hover:text-success"
-                  }
-                  to="/bookings"
-                >
-                  Booked-Services
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-accent font-bold"
-                      : "font-semibold hover:text-success"
-                  }
-                  to="/service-todo"
-                >
-                  Service-To-Do
-                </NavLink>
-              </li>
-            </ul>
-          </li>
-        </>
-      )}
+
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold"
+              : "font-bold hover:text-success"
+          }
+          to="/add-service"
+        >
+          Add Service
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold"
+              : "font-bold hover:text-success"
+          }
+          to="/manage-service"
+        >
+          Manage Service
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold"
+              : "font-bold hover:text-success"
+          }
+          to="/bookings"
+        >
+          Booked-Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-accent font-bold"
+              : "font-bold hover:text-success"
+          }
+          to="/service-todo"
+        >
+          Service-To-Do
+        </NavLink>
+      </li>
     </>
   );
 
   return (
     <div className="sticky top-0 z-50 bg-base-100 px-0 lg:px-14 shadow-md">
-      <div className="navbar bg-base-100">
-        <div className="navbar-start">
+      <div className="navbar bg-base-100 flex items-center justify-between">
+        <div className="flex items-center">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -197,7 +177,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow share-tech"
             >
               {links}
             </ul>
@@ -212,10 +192,10 @@ const Navbar = () => {
             <p>SnapFix</p>
           </Link>
         </div>
-        <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 share-tech">{links}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="flex flex-row items-center">
           <div>
             <ThemeToggle className="border-none"></ThemeToggle>
           </div>

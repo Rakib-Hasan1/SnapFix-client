@@ -24,27 +24,27 @@ const Footer = () => {
           </h6>
           <ul className="space-y-2">
             <li>
-              <Link to="/" className="link link-hover hover:text-primary transition">
+              <Link to="/" className="link link-hover hover:text-accent transition">
 
                 Home
 
               </Link>
             </li>
             <li>
-              <Link to="/all-services" className="link link-hover hover:text-primary transition">
+              <Link to="/all-services" className="link link-hover hover:text-accent transition">
 
                 All Services
 
               </Link>
             </li>
             <li>
-              <Link to="/add-service" className="link link-hover hover:text-primary transition">
+              <Link to="/add-service" className="link link-hover hover:text-accent transition">
                 Add Services
 
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="link link-hover hover:text-primary transition">
+              <Link to="/contact" className="link link-hover hover:text-accent transition">
                 Contact Us
               </Link>
             </li>

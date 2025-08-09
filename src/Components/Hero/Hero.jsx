@@ -30,15 +30,15 @@ const Hero = () => {
                 <img
                   src={image}
                   className="brightness-50 w-full h-full object-cover object-top"
-                  alt=""
+                  alt="banner"
                 />
-                <div className="absolute space-y-4 top-1/2 right-10 md:right-20 transform -translate-y-1/2 text-white text-3xl font-bold text-start max-w-xl">
+                <div className="share-tech absolute space-y-4 top-1/2 right-10 md:right-20 transform -translate-y-1/2 text-white text-3xl font-bold text-start max-w-xl">
                   <p className="pl-3">
                     <Typewriter
+                    className="share-tech"
                       words={["Your One-Stop Service Solution"]}
                       loop={1}
                       typeSpeed={50}
-                      deleteSpeed={0}
                       delaySpeed={3000}
                     />
                   </p>
@@ -48,7 +48,6 @@ const Hero = () => {
                       loop={1}
                       cursor={false}
                       typeSpeed={50}
-                      deleteSpeed={0}
                       delaySpeed={3000}
                     />
                   </p>

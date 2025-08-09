@@ -56,7 +56,7 @@ const Login = () => {
       </div>
       <div className="row-start-1">
         <form onSubmit={handleLogin}>
-          <fieldset className="fieldset bg-base-100 max-w-sm rounded-md shadow-2xl p-4">
+          <fieldset className="fieldset bg-base-100 max-w-sm rounded-md border border-gray-300 p-4">
             <h3 className="font-bold text-2xl text-center text-accent">
               SnapFix Login
             </h3>
