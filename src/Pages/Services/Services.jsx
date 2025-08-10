@@ -20,7 +20,7 @@ const Services = () => {
           <title>All Services | SnapFix</title>
         </Helmet>
 
-        <h2 className="font-extrabold text-2xl text-accent text-center my-5 oswald">
+        <h2 className="font-extrabold text-3xl text-accent text-center my-5 oswald">
           All Services
         </h2>
 
@@ -64,7 +64,7 @@ const Services = () => {
               </Link>
             ))
           ) : (
-            <p className="text-center text-xl mt-10">No services found</p>
+            <p className="text-center text-xl mt-10 share-tech">No services found</p>
           )}
         </div>
       </div>

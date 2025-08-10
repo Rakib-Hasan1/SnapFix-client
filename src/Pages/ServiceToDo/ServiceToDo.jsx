@@ -40,7 +40,7 @@ const ServiceToDo = () => {
 
   if (!bookings.length) {
     return (
-      <div className="text-center my-20 text-lg font-semibold text-error">
+      <div className="text-center my-20 text-lg font-semibold text-error share-tech">
         No one booked your service yet
       </div>
     );

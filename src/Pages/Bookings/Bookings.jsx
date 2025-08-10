@@ -65,7 +65,7 @@ const Bookings = () => {
           <title>Booked Services | SnapFix</title>
         </Helmet>
         {bookings.length === 0 ? (
-          <p className="text-center">No Bookings yet.</p>
+          <p className="text-center share-tech">No Bookings yet.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-3 share-tech">
             {bookings.map((booking) => (

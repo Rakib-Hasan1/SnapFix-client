@@ -67,7 +67,7 @@ const ManageService = () => {
         </Helmet>
 
         {services.length === 0 ? (
-          <p className="text-center">No published services yet.</p>
+          <p className="text-center share-tech">No published services yet.</p>
         ) : (
           <>
             <div className="hidden md:block overflow-x-auto rounded-md">

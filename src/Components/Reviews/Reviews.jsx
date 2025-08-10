@@ -38,7 +38,7 @@ const Reviews = ({ reviewsPromise }) => {
                                 </div>
 
                                 {/* Review Text */}
-                                <p className="text-gray-600 italic mb-4">“{review.review}”</p>
+                                <p className="italic mb-4">“{review.review}”</p>
 
                                 {/* User Info */}
                                 <div className="flex items-center gap-3 mt-auto">
@@ -46,8 +46,8 @@ const Reviews = ({ reviewsPromise }) => {
                                         {review.userName?.charAt(0)}
                                     </div>
                                     <div>
-                                        <p className="font-semibold text-gray-800">{review.userName}</p>
-                                        <p className="text-sm text-gray-500">{review.userEmail}</p>
+                                        <p className="font-semibold">{review.userName}</p>
+                                        <p className="text-sm">{review.userEmail}</p>
                                     </div>
                                 </div>
 
