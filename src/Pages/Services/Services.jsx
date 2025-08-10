@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router";
+import { motion } from "framer-motion";
+import { FaLocationDot } from "react-icons/fa6";
 
 const Services = () => {
   const services = useLoaderData();
@@ -13,97 +15,59 @@ const Services = () => {
 
   return (
     <div className="bg-base-300">
-      <div className="w-full lg:w-8/12 mx-auto py-6 p-4">
-      <Helmet>
-        <title>All Services | SnapFix</title>
-      </Helmet>
+      <div className="w-11/12 mx-auto py-6">
+        <Helmet>
+          <title>All Services | SnapFix</title>
+        </Helmet>
 
-      <h2 className="font-extrabold text-2xl text-accent text-center my-5 oswald">
-        All Services
-      </h2>
+        <h2 className="font-extrabold text-2xl text-accent text-center my-5 oswald">
+          All Services
+        </h2>
 
-      {/* 🔍 Search input */}
-      <div className="flex justify-center mb-6 share-tech">
-        <input
-          type="text"
-          placeholder="Search by service name..."
-          className="input input-bordered input-accent w-full max-w-md"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-      </div>
+        {/* 🔍 Search input */}
+        <div className="flex justify-center mb-6 share-tech">
+          <input
+            type="text"
+            placeholder="Search by service name..."
+            className="input input-bordered input-accent w-full max-w-md"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+        </div>
 
-      {/* List services */}
-      {filteredServices.length > 0 ? (
-        filteredServices.map((service) => (
-          <div
-            key={service._id}
-            className="flex flex-col md:flex-row bg-base-100 rounded-xl overflow-hidden my-5"
-          >
-            <div className="md:w-3/6 w-full h-72 md:h-auto">
-              <img
-                src={service.service_image}
-                alt="Service"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
+        {/* List services */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredServices.length > 0 ? (
+            filteredServices.map((service) => (
+              <Link to={`/all-services/${service._id}`}>
+                <motion.div
+                  whileHover={{ scale: 1.06 }}
+                  className="card bg-base-100"
+                >
+                  <figure>
+                    <img src={service.service_image} className="w-full h-[200px] object-cover" alt="service image" />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title text-accent -mt-3">{service.service_name}</h2>
 
-            <div className="md:w-3/5 w-full p-6 flex flex-col justify-between">
-              <div className="share-tech">
-                <h2 className="text-2xl font-bold text-accent mb-3">
-                  {service.service_name}
-                </h2>
-
-                <p className="mb-4 text-justify leading-relaxed">
-                  {service.service_description.length > 180
-                    ? service.service_description.slice(0, 180) + "....."
-                    : service.service_description}
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mb-5">
-                  <p>
-                    <span className="font-semibold">Price:</span> $
-                    {service.service_price}
-                  </p>
-                  <p>
-                    <span className="font-semibold">Area:</span>{" "}
-                    {service.service_area}
-                  </p>
-                  <p>
-                    <span className="font-semibold">Provider Name:</span>{" "}
-                    {service.providerName}
-                  </p>
-                  <p>
-                    <span className="font-semibold">Provider Email:</span>{" "}
-                    {service.providerEmail}
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-3 mb-4">
-                  <img
-                    src={service.providerPhotoURL}
-                    alt="Provider"
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div>
-                    <p className="font-semibold">{service.providerName}</p>
-                    <p className="text-sm">{service.providerEmail}</p>
+                    <p className="flex items-center gap-1 font-semibold -my-1">
+                      <FaLocationDot />
+                      {service.service_area}
+                    </p>
+                    <p className="hover:underline">
+                      {service.service_description.length > 80
+                        ? service.service_description.slice(0, 80) + "....."
+                        : service.service_description}
+                    </p>
                   </div>
-                </div>
-              </div>
-
-              <div>
-                <Link to={`/all-services/${service._id}`}>
-                  <button className="btn btn-accent btn-sm">Show Details</button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))
-      ) : (
-        <p className="text-center text-xl mt-10">No services found</p>
-      )}
-    </div>
+                </motion.div>
+              </Link>
+            ))
+          ) : (
+            <p className="text-center text-xl mt-10">No services found</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

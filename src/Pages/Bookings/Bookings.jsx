@@ -3,10 +3,13 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import LoadingEffect from "../../Components/LoadingEffect/LoadingEffect";
 
 const Bookings = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
+
+
 
   useEffect(() => {
     if (user?.email) {
@@ -46,10 +49,16 @@ const Bookings = () => {
     });
   };
 
+
+
+  if (!bookings) {
+    return <LoadingEffect />
+  }
+
   return (
-    <div>
-      <div className="max-w-5xl mx-auto my-6">
-        <h2 className="text-2xl font-bold text-accent text-center mb-4 oswald">
+    <div className="bg-base-300 min-h-screen">
+      <div className="max-w-5xl mx-auto py-10">
+        <h2 className="text-3xl font-bold text-accent text-center mb-4 oswald">
           My Booked Services
         </h2>
         <Helmet>
@@ -60,7 +69,7 @@ const Bookings = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-3 share-tech">
             {bookings.map((booking) => (
-              <div key={booking._id} className="card bg-base-100 p-4 border border-gray-200">
+              <div key={booking._id} className="card bg-base-100 p-4">
                 <img
                   src={booking.service_image}
                   className="h-48 w-full object-cover rounded-md"

@@ -6,9 +6,14 @@ import LoadingEffect from "../../Components/LoadingEffect/LoadingEffect";
 import { Helmet } from "react-helmet-async";
 import Progress from "../../Components/Progress/Progress";
 import GetAService from "../../Components/HowToGetAService/GetAService";
+import Reviews from "../../Components/Reviews/Reviews";
 
 const Home = () => {
   const servicesPromise = fetch("https://snap-fix-server.vercel.app/services").then((res) =>
+    res.json()
+  );
+
+  const reviewsPromise = fetch("https://snap-fix-server.vercel.app/reviews").then((res) =>
     res.json()
   );
 
@@ -23,6 +28,9 @@ const Home = () => {
         <Services servicesPromise={servicesPromise}></Services>
       </Suspense>
       <Progress></Progress>
+      <Suspense fallback={<LoadingEffect></LoadingEffect>}>
+        <Reviews reviewsPromise={reviewsPromise}></Reviews>
+      </Suspense>
       <GetAService></GetAService>
     </div>
   );

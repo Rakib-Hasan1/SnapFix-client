@@ -47,59 +47,61 @@ const ServiceToDo = () => {
   }
 
   return (
-    <div className="w-11/12 mx-auto my-10">
-      <h2 className="text-2xl font-bold text-accent text-center mb-6 oswald">
-        Update Status of Booked Services
-      </h2>
+    <div className="bg-base-300 min-h-screen">
+      <div className="w-11/12 mx-auto py-10">
+        <h2 className="text-3xl font-bold text-accent text-center mb-6 oswald">
+          Update Status of Booked Services
+        </h2>
 
-      <Helmet>
-        <title>Services ToDo | SnapFix</title>
-      </Helmet>
+        <Helmet>
+          <title>Services ToDo | SnapFix</title>
+        </Helmet>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 share-tech">
-        {bookings.map((booking) => (
-          <div key={booking._id} className="card bg-base-100 shadow p-4">
-            <img
-              src={booking.service_image}
-              alt={booking.service_name}
-              className="w-full h-48 object-cover rounded"
-            />
-            <h3 className="text-xl font-bold mt-2 text-accent">
-              {booking.service_name}
-            </h3>
-            <p className="text-sm">
-              <span className="font-semibold">Price:</span> $
-              {booking.service_price}
-            </p>
-            <p className="text-sm">
-              <span className="font-semibold">Area:</span>{" "}
-              {booking.service_area}
-            </p>
-            <p className="text-sm">
-              <span className="font-semibold">Date:</span>{" "}
-              {booking.service_taking_date}
-            </p>
-            <p className="text-sm">
-              <span className="font-semibold">Instructions:</span>{" "}
-              {booking.Special_instruction || "None"}
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 share-tech">
+          {bookings.map((booking) => (
+            <div key={booking._id} className="card bg-base-100 p-4">
+              <img
+                src={booking.service_image}
+                alt={booking.service_name}
+                className="w-full h-48 object-cover rounded-md"
+              />
+              <h3 className="text-xl font-bold mt-2 text-accent">
+                {booking.service_name}
+              </h3>
+              <p className="text-sm">
+                <span className="font-semibold">Price:</span> $
+                {booking.service_price}
+              </p>
+              <p className="text-sm">
+                <span className="font-semibold">Area:</span>{" "}
+                {booking.service_area}
+              </p>
+              <p className="text-sm">
+                <span className="font-semibold">Date:</span>{" "}
+                {booking.service_taking_date}
+              </p>
+              <p className="text-sm">
+                <span className="font-semibold">Instructions:</span>{" "}
+                {booking.Special_instruction || "None"}
+              </p>
 
-            <div className="flex items-center gap-3 mt-3">
-              <label className="font-semibold">Status:</label>
-              <select
-                className="select select-bordered select-accent select-sm w-full mt-1"
-                value={booking.serviceStatus}
-                onChange={(e) =>
-                  handleStatusChange(booking._id, e.target.value)
-                }
-              >
-                <option value="pending">Pending</option>
-                <option value="working">Working</option>
-                <option value="completed">Completed</option>
-              </select>
+              <div className="flex items-center gap-3 mt-3">
+                <label className="font-semibold">Status:</label>
+                <select
+                  className="select select-bordered select-accent select-sm w-full mt-1"
+                  value={booking.serviceStatus}
+                  onChange={(e) =>
+                    handleStatusChange(booking._id, e.target.value)
+                  }
+                >
+                  <option value="pending">Pending</option>
+                  <option value="working">Working</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
